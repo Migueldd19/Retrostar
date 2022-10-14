@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="/ProyectoDAW//css/login_registro.css">
+    <link rel="stylesheet" href="/Retrostar//css/login_registro.css">
 
     <!-- JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"> </script>
@@ -20,7 +20,7 @@
 </head>
 <body>
     <div class="fondo">
-        <img src="/ProyectoDAW//Imagenes/fondo1.jpg" alt="">
+        <img src="/Retrostar//Imagenes/fondo1.jpg" alt="">
         <div class="page">
             <div class="container1">
                 <div class="left">
@@ -30,7 +30,7 @@
                 <div class="right">
                     <div class="form">
                         <!-- formulario login -->
-                        <form action="/ProyectoDAW/php/validarLogin.php" method="POST" id="formularioLogin">
+                        <form action="/Retrostar/php/validarLogin.php" method="POST" id="formularioLogin">
                             <h1>Login</h1>
                             <label for="Usuario">Usuario</label>
                             <input type="text" name="Usuario_login" id="Usuario_login" autocomplete="off" class="campos">
@@ -45,7 +45,7 @@
                 <div class="right">
                     <div class="form">
                         <!-- formulario registro -->
-                        <form action="/ProyectoDAW/php/validarRegistro.php" method="POST">
+                        <form action="/Retrostar/php/validarRegistro.php" method="POST">
                             <h1>Registro</h1>
                             <label for="Nombre">Nombre</label>
                             <input type="text" name="Nombre_registro" id="Nombre_registro"  autocomplete="off" class="campos">

@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="/ProyectoDAW/css/menu.css">
+    <link rel="stylesheet" href="/Retrostar/css/menu.css">
 
     <!-- JAVASCRIPT -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="/ProyectoDAW/javaScript/menu.js"></script>
+    <script src="/Retrostar/javaScript/menu.js"></script>
     
     <!-- ICONOS -->
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
@@ -30,7 +30,7 @@
     $sentencia = 'DELETE FROM listadeseos WHERE Usuario = "'.$nombre.'" AND Juego = "'.$juego.'" ';
     $consulta = mysqli_query($conexion,$sentencia);
     
-    header("Location:/ProyectoDAW/IndexPrincipal.php");
+    header("Location:/Retrostar/IndexPrincipal.php");
     
     ?>
 

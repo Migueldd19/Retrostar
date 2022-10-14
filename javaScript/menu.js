@@ -19,42 +19,42 @@ function e(){
 
     
     let pagina = obtenerCookie("Pagina");
-    $(".subcontenedor2").load("/ProyectoDAW/php/"+pagina);
+    $(".subcontenedor2").load("/Retrostar/php/"+pagina);
     
     
     
     /*cargas de todas las paginas a la principal*/
 
     $("#home").click(function(){
-        $(".subcontenedor2").load("/ProyectoDAW/php/Juegos.php");
+        $(".subcontenedor2").load("/Retrostar/php/Juegos.php");
     })
 
     $("#biblioteca").click(function(){
-        $(".subcontenedor2").load("/ProyectoDAW//php/Biblioteca.php")
+        $(".subcontenedor2").load("/Retrostar//php/Biblioteca.php")
     })
 
     $("#deseos").click(function(){
-        $(".subcontenedor2").load("/ProyectoDAW//php/ListaDeseos.php")
+        $(".subcontenedor2").load("/Retrostar//php/ListaDeseos.php")
     })
 
     $("#amigos").click(function(){
-        $(".subcontenedor2").load("/ProyectoDAW//php/Amigos.php")
+        $(".subcontenedor2").load("/Retrostar//php/Amigos.php")
     })
 
     $("#usuarios").click(function(){
-        $(".subcontenedor2").load("/ProyectoDAW//php/Usuarios.php")
+        $(".subcontenedor2").load("/Retrostar//php/Usuarios.php")
     })
 
     $("#administrar").click(function(){
-        $(".subcontenedor2").load("/ProyectoDAW//php/administrar.php")
+        $(".subcontenedor2").load("/Retrostar//php/administrar.php")
     })
     
     $("#btn_sesion1").click(function(){
-        $(".subcontenedor2").load("/ProyectoDAW//php/login_registro.php")
+        $(".subcontenedor2").load("/Retrostar//php/login_registro.php")
     })
 
     $("#btn_sesion2").click(function(){
-        $(".subcontenedor2").load("/ProyectoDAW//php/cierreSesion.php")
+        $(".subcontenedor2").load("/Retrostar//php/cierreSesion.php")
     })
 
 

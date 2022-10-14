@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="/ProyectoDAW/css/menu.css">
+    <link rel="stylesheet" href="/Retrostar/css/menu.css">
 
     <!-- JAVASCRIPT -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="/ProyectoDAW/javaScript/menu.js"></script>
+    <script src="/Retrostar/javaScript/menu.js"></script>
     
     <!-- ICONOS -->
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
@@ -23,7 +23,7 @@
             <div class="menu active">
                 <div class="logo_contenido">
                     <div class="logo">
-                        
+
                         <i class='bx bx-ghost bx-tada' ></i>
                         <i class='bx bx-game' ></i>
                         <div class="nombre_logo">RetroStar</div>
@@ -84,12 +84,12 @@
                         <?php
                             if(isset($_SESSION["imagen"])){
                                 ?>
-                                <img src="/ProyectoDAW//Imagenes/<?php print $_SESSION["imagen"] ?>" alt="">
+                                <img src="/Retrostar//Imagenes/<?php print $_SESSION["imagen"] ?>" alt="">
                                 <?php             
                             }
                             else{
                                 ?>
-                                <img src="/ProyectoDAW//Imagenes/user.png" alt="">
+                                <img src="/Retrostar//Imagenes/user.png" alt="">
                                 <?php             
                             }
                             ?> 

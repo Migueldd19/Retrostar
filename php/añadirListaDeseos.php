@@ -23,7 +23,7 @@ if($valido == true){
     $consulta = mysqli_query($conexion,$sentencia);
     if($consulta){
         print "Juego añadido a tu lista de deseos";
-        header("Location:/ProyectoDAW/IndexPrincipal.php");
+        header("Location:/Retrostar/IndexPrincipal.php");
     }
     else{
         print "Error"; 
@@ -31,7 +31,7 @@ if($valido == true){
                 
 }
 else{
-    header("Location:/ProyectoDAW/IndexPrincipal.php");
+    header("Location:/Retrostar/IndexPrincipal.php");
 }
 
 unset($_COOKIE['NombreJuego']);

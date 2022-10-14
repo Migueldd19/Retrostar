@@ -48,7 +48,7 @@ if($valNombre==true && $valContraseña==true){
     session_start();
     //si hay sesion iniciada volvemos a la pagina principal
     if(isset($_SESSION["usuario"])){
-        header("Location:/IndexPrincipal.php");
+        header("Location:/Retrostar/IndexPrincipal.php");
     }
     else{
         //si no hay sesion iniciada hacemos la conexion a la base de datos
@@ -67,16 +67,8 @@ if($valNombre==true && $valContraseña==true){
                     if($fila['Rol'] == "Admin"){
                         $_SESSION["rol"] = $fila['Rol'];
                     }
-                    header("Location:/ProyectoDAW/IndexPrincipal.php");
+                    header("Location:/Retrostar/IndexPrincipal.php");
                 }
-                /*else{
-                    ?>
-                    <script>
-                        alert("El usuario y la contraseña no coinciden.");
-                        document.cookie = "Pagina = login_registro.php";
-                    </script>
-                    <?php
-                }*/
             }
             else{
                 ?>
@@ -86,7 +78,7 @@ if($valNombre==true && $valContraseña==true){
                 </script>
                 <?php
                 
-                header("Location:/ProyectoDAW/IndexPrincipal.php");
+                header("Location:/Retrostar/IndexPrincipal.php");
             }
         }
     }

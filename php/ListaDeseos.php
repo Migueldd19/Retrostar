@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="/ProyectoDAW/css/juegos.css">
+    <link rel="stylesheet" href="/Retrostar/css/juegos.css">
 
     <!-- Boostrap -->
     
@@ -44,7 +44,7 @@
                 ?>
                 <div class="col-lg-3" id="caja">
                     <div class="imagen">
-                        <img src="/ProyectoDAW//Imagenes/<?php print $row['Imagen'] ?>" alt="">
+                        <img src="/Retrostar//Imagenes/<?php print $row['Imagen'] ?>" alt="">
                     </div>
                     <div class="nombre">
                         <?php print $row['Nombre'];?>
@@ -84,7 +84,7 @@
         function eleminarJuego(e) {
             document.cookie = "NombreJuego = "+e;
             document.cookie = "Pagina = ListaDeseos.php";
-            window.location.replace("/ProyectoDAW/php/eleminarListaDeseos.php");                             
+            window.location.replace("/Retrostar/php/eleminarListaDeseos.php");                             
         }
                                          
     </script>
