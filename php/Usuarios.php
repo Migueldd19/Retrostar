@@ -39,27 +39,32 @@ session_start();
                     <h1>Bienvenido <?php print $row['Nombre'];?></h1>
                 </div>
                 <div class="subcontenedor">
-                    <div class="nombre">
-                        Nombre: <?php print $row['Nombre'];?>
-                    </div>
-                    <div class="contraseña">
-                        Contraseña: <?php print $row['Contraseña'];?>
-                    </div>
-                    <div class="id">
-                        ID de Usuario: <?php print $row['IDusuario'];?>
-                    </div>
-                    <div class="email">
-                        Email: <?php print $row['Email'];?>
-                    </div>
-                    <div class="telefono">
-                        Telefono: <?php print $row['Telefono'];?>
-                    </div>
-                    <div class="rol">
-                        Rol: <?php print $row['Rol'];?>
-                    </div>
-                    <div class="imagen">
-                        Imagen: <img src="Imagenes/<?php print $row['Imagen'] ?>" alt="">
-                    </div>
+                    <form action="EditarUsuario.php" method="POST">
+                        <label>Nombre: 
+                        <input type="text" name="NombreUsuario" value="<?php print $row['Nombre'];?>">
+                        </label>
+
+                        <label>Contraseña: 
+                        <input type="text" name="ContraseñaUsuario" value="<?php print $row['Contraseña'];?>">
+                        </label>
+
+                        <label>ID de Usuario: <?php print $row['IDusuario'];?></label>
+
+                        <label>Email: 
+                        <input type="text" name="EmailUsuario" value="<?php print $row['Email'];?>">
+                        </label>
+
+                        <label>Telefono: 
+                        <input type="text" name="TlfUsuario" value="<?php print $row['Telefono'];?>">
+                        </label>
+
+                        <label>Rol: <?php print $row['Rol'];?></label>
+
+                        <label>Imagen: <img src="Imagenes/<?php print $row['Imagen'] ?>" alt="">
+                        <input type="file" name="ImagenUsuario" accept=".jpg" name="Seleccionar imagen">
+                        </label>
+                        
+                    </form>
                 </div>
             </div>
             <?php 
