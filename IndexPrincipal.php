@@ -23,6 +23,7 @@
             <div class="menu active">
                 <div class="logo_contenido">
                     <div class="logo">
+                        
                         <i class='bx bx-ghost bx-tada' ></i>
                         <i class='bx bx-game' ></i>
                         <div class="nombre_logo">RetroStar</div>
