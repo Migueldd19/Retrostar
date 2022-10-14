@@ -19,42 +19,42 @@ function e(){
 
     
     let pagina = obtenerCookie("Pagina");
-    $(".subcontenedor2").load("/Retrostar/php/"+pagina);
+    $(".subcontenedor2").load("php/"+pagina);
     
     
     
     /*cargas de todas las paginas a la principal*/
 
     $("#home").click(function(){
-        $(".subcontenedor2").load("/Retrostar/php/Juegos.php");
+        $(".subcontenedor2").load("php/Juegos.php");
     })
 
     $("#biblioteca").click(function(){
-        $(".subcontenedor2").load("/Retrostar//php/Biblioteca.php")
+        $(".subcontenedor2").load("php/Biblioteca.php")
     })
 
     $("#deseos").click(function(){
-        $(".subcontenedor2").load("/Retrostar//php/ListaDeseos.php")
+        $(".subcontenedor2").load("php/ListaDeseos.php")
     })
 
     $("#amigos").click(function(){
-        $(".subcontenedor2").load("/Retrostar//php/Amigos.php")
+        $(".subcontenedor2").load("php/Amigos.php")
     })
 
     $("#usuarios").click(function(){
-        $(".subcontenedor2").load("/Retrostar//php/Usuarios.php")
+        $(".subcontenedor2").load("php/Usuarios.php")
     })
 
     $("#administrar").click(function(){
-        $(".subcontenedor2").load("/Retrostar//php/administrar.php")
+        $(".subcontenedor2").load("php/administrar.php")
     })
     
     $("#btn_sesion1").click(function(){
-        $(".subcontenedor2").load("/Retrostar//php/login_registro.php")
+        $(".subcontenedor2").load("php/login_registro.php")
     })
 
     $("#btn_sesion2").click(function(){
-        $(".subcontenedor2").load("/Retrostar//php/cierreSesion.php")
+        $(".subcontenedor2").load("php/cierreSesion.php")
     })
 
 

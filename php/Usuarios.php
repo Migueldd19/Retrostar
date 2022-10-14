@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="/Retrostar/css/usuarios.css">
+    <link rel="stylesheet" href="css/usuarios.css">
 
     <!-- Boostrap -->
     
@@ -58,7 +58,7 @@ session_start();
                         Rol: <?php print $row['Rol'];?>
                     </div>
                     <div class="imagen">
-                        Imagen: <img src="/Retrostar//Imagenes/<?php print $row['Imagen'] ?>" alt="">
+                        Imagen: <img src="Imagenes/<?php print $row['Imagen'] ?>" alt="">
                     </div>
                 </div>
             </div>

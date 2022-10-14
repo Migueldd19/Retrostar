@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="/Retrostar/css/juegos.css">
+    <link rel="stylesheet" href="css/juegos.css">
 
     <!-- Boostrap -->
     
@@ -49,7 +49,7 @@ $result = conectar()->query('SELECT * FROM juegos');
             ?>
                 <div class="col-lg-3" id="caja">
                     <div class="imagen">
-                        <img src="/Retrostar//Imagenes/<?php print $row['Imagen'] ?>" alt="">
+                        <img src="Imagenes/<?php print $row['Imagen'] ?>" alt="">
                     </div>
                     <div class="nombre">
                         <?php print $row['Nombre'];?>
@@ -85,7 +85,7 @@ $result = conectar()->query('SELECT * FROM juegos');
             ?>
                 <div class="col-lg-3" id="caja">
                     <div class="imagen">
-                        <img src="/Retrostar//Imagenes/<?php print $row['Imagen'] ?>" alt="">
+                        <img src="Imagenes/<?php print $row['Imagen'] ?>" alt="">
                     </div>
                     <div class="nombre">
                         <?php print $row['Nombre'];?>
@@ -153,7 +153,7 @@ $result = conectar()->query('SELECT * FROM juegos');
         }
         function mostrar(e) {
             document.cookie = "NombreJuego = "+e;
-            window.location.replace("/Retrostar/php/añadirListaDeseos.php");                             
+            window.location.replace("php/añadirListaDeseos.php");                             
         }
                                          
     </script>
