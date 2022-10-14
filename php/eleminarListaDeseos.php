@@ -30,7 +30,7 @@
     $sentencia = 'DELETE FROM listadeseos WHERE Usuario = "'.$nombre.'" AND Juego = "'.$juego.'" ';
     $consulta = mysqli_query($conexion,$sentencia);
     
-    header("Location:IndexPrincipal.php");
+    header("Location:../IndexPrincipal.php");
     
     ?>
 

@@ -70,7 +70,7 @@ $result = conectar()->query('SELECT * FROM juegos');
                         </div>
                         <div class="iconos">
                             <div class="deseos" >
-                                <i class='bx bx-plus-circle' onclick="return mostrar('<?php print $row['Nombre'];?>');"></i>
+                                <i class='bx bx-plus-circle' onclick="return listaDeseos('<?php print $row['Nombre'];?>');"></i>
                             </div>
                             
                             <div class="carrito"><i class="bx bxs-cart" onclick="comprar()"></i></div>
@@ -151,7 +151,7 @@ $result = conectar()->query('SELECT * FROM juegos');
         function comprar(e){
             
         }
-        function mostrar(e) {
+        function listaDeseos(e) {
             document.cookie = "NombreJuego = "+e;
             window.location.replace("php/añadirListaDeseos.php");                             
         }

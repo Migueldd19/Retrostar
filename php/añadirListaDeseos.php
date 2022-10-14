@@ -1,7 +1,6 @@
 <?php
 require("conectarDB.php");
 
-
 session_start();
 $nombre = $_SESSION["usuario"];
 $juego = $_COOKIE['NombreJuego'];
@@ -22,16 +21,12 @@ if($valido == true){
     $sentencia = 'INSERT INTO listadeseos (Usuario, Juego) VALUES ("'.$nombre.'", "'.$juego.'")';
     $consulta = mysqli_query($conexion,$sentencia);
     if($consulta){
-        print "Juego añadido a tu lista de deseos";
-        header("Location:IndexPrincipal.php");
-    }
-    else{
-        print "Error"; 
-    }
-                
+
+        header("Location:../IndexPrincipal.php");
+    }            
 }
 else{
-    header("Location:IndexPrincipal.php");
+    header("Location:../IndexPrincipal.php");
 }
 
 unset($_COOKIE['NombreJuego']);

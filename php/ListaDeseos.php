@@ -27,7 +27,11 @@
         require("conectarDB.php");
 
         session_start();
-        $nombre = $_SESSION["usuario"];
+        $nombre = null;
+        if(isset($_SESSION["usuario"])){
+            $nombre = $_SESSION["usuario"];
+        }
+        
     ?>
     <div class="busqueda">
         <p class="titulo">Lista de Deseos</p>
