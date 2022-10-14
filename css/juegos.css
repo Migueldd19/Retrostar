@@ -1,0 +1,136 @@
+.busqueda{
+    background-color: #11101d;
+    width: 100%;
+    height: 7%;
+    display:flex;
+    justify-content: space-between;
+}
+.titulo{
+    color: #fff;
+    font-size: 30px;
+    margin-left: 15%;
+    margin-top: 5px;
+}
+.bx-search-alt-2{
+    position: absolute;
+    z-index: 99;
+    color: #fff;
+    font-size: 22px;
+    top: 17px;
+    left: 56%;
+    transition: all 0.5s ease;
+}
+.bx-search-alt-2:hover{
+    background:#fff;
+    color:#1d1b31;
+}
+.bx-search-alt-2:hover{
+    background:none;
+    color: #fff;
+}
+input{
+    position:relative;
+    height:70%;
+    width: 30%;
+    right: 15%;
+    top: 7px;
+    border-radius: 12px;
+    outline: none;
+    border: none;
+    background: #1d1b31;
+    padding-left: 50px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.contenedor{
+    width: 100%;
+    height: 93%;
+    background-color: #1d1b31;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-y: scroll;
+}
+.contenedor::-webkit-scrollbar{
+    width: 7px;
+    background: #1d1b31;
+}
+.contenedor::-webkit-scrollbar-thumb{
+    background: #11101d;
+}
+#caja{
+    color: rgba(255, 255, 255, 0.652);
+    border-radius: 5px 5px 10px 10px;
+    box-shadow:0 0 5px rgba(0,178,255,1);	
+    background-color: #11101d;
+    flex-basis: 350px;
+    height: 44%;
+    padding: 10px;
+    margin: 10px
+}
+.imagen{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 50%;
+    
+}
+.imagen img{
+    width: 90%;
+    height: 100%;
+    border-radius: 10px;
+    border: 1px solid black;
+    
+}
+.nombre{
+    box-shadow:inset 0px -8px 1px -6px rgba(0,178,255,1);
+    border-radius: 2px;
+    color: white;
+    font-weight: bold;
+    font-size:large;
+    width: 100%;
+    height: 10%;
+    padding: 5px;
+    padding-bottom: 7px;
+    text-align: center;
+    border-bottom: 1px black outset;
+}
+.subcontenedor{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+.descripcion{
+    width: 100%;
+    height:100px;
+    font-size:small;
+    padding-top: 4px;
+}
+.precio{
+    width: 4%;
+}
+.iconos{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content:flex-end;
+    padding-bottom: 4px;
+    width: 90%;
+    padding: 3px;
+}
+
+#deseo{
+    margin-right: 15px;
+}
+
+.row items .item{
+    display: inline-block;  /* Es esencial para que se muestren los bloques en línea */
+    height:300px;
+    width: 300px;
+    border:1px solid #333;
+    background: #999;
+    margin:20px;
+}
