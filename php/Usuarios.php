@@ -39,7 +39,7 @@ session_start();
                     <h1>Bienvenido <?php print $row['Nombre'];?></h1>
                 </div>
                 <div class="subcontenedor">
-                    <form action="EditarUsuario.php" method="POST">
+                    <form action="/php/EditarUsuario.php" method="POST">
                         <label>Nombre: 
                         <input type="text" name="NombreUsuario" value="<?php print $row['Nombre'];?>">
                         </label>
@@ -63,6 +63,8 @@ session_start();
                         <label>Imagen: <img src="Imagenes/<?php print $row['Imagen'] ?>" alt="">
                         <input type="file" name="ImagenUsuario" accept=".jpg" name="Seleccionar imagen">
                         </label>
+
+                        <input type="submit" name="editar">
                         
                     </form>
                 </div>
