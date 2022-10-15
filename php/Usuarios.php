@@ -14,6 +14,7 @@
     <!-- JAVASCRIPT -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"> </script>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="javaScript/validarCambiosUsuario.js"></script>
     
 
     <!-- ICONOS -->
@@ -39,32 +40,35 @@ session_start();
                     <h1>Bienvenido <?php print $row['Nombre'];?></h1>
                 </div>
                 <div class="subcontenedor">
-                    <form action="/php/EditarUsuario.php" method="POST">
+                    <form action="/php/EditarUsuario.php" method="POST" enctype="multipart/form-data">
                         <label>Nombre: 
-                        <input type="text" name="NombreUsuario" value="<?php print $row['Nombre'];?>">
+                        <input type="text" id="nombreUsuario" name="NombreUsuario" value="<?php print $row['Nombre'];?>">
                         </label>
 
                         <label>Contraseña: 
-                        <input type="text" name="ContraseñaUsuario" value="<?php print $row['Contraseña'];?>">
+                        <input type="text" id="contraseñaUsuario" name="ContraseñaUsuario" value="<?php print $row['Contraseña'];?>">
                         </label>
 
                         <label>ID de Usuario: <?php print $row['IDusuario'];?></label>
 
                         <label>Email: 
-                        <input type="text" name="EmailUsuario" value="<?php print $row['Email'];?>">
+                        <input type="text" id="emailUsuario" name="EmailUsuario" value="<?php print $row['Email'];?>">
                         </label>
 
                         <label>Telefono: 
-                        <input type="text" name="TlfUsuario" value="<?php print $row['Telefono'];?>">
+                        <input type="text" id="tlfUsuario" name="TlfUsuario" value="<?php print $row['Telefono'];?>">
                         </label>
 
                         <label>Rol: <?php print $row['Rol'];?></label>
 
                         <label>Imagen: <img src="Imagenes/<?php print $row['Imagen'] ?>" alt="">
-                        <input type="file" name="ImagenUsuario" accept=".jpg" name="Seleccionar imagen">
+                        <input type="file" name="ImagenUsuario">
                         </label>
 
-                        <input type="submit" name="editar">
+                        <input type="submit" onclick="cargarPagina()" value="Realizar Cambios" id="enviar">
+                        <a href="eleminarUsuario.php">
+                            <button>Eleminar Usuario</button>
+                        </a> 
                         
                     </form>
                 </div>
@@ -73,4 +77,9 @@ session_start();
         }
     }
 ?>
+<script>
+    function cargarPagina() {
+            document.cookie = "Pagina = Usuarios.php";                             
+        }
+</script>
 

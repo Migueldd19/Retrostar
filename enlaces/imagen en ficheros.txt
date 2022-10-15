@@ -1,1 +1,1 @@
-https://www.lawebdelprogramador.com/codigo/PHP/2580-Subir-uno-o-varios-archivos-al-servidor-y-mover-los-a-una-carpeta.html
+https://www.srcodigofuente.es/aprender-php/subir-imagenes-html-php

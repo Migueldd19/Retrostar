@@ -19,6 +19,9 @@
 
 </head>
 <body>
+    <?php
+        require("php/conectarDB.php");
+    ?>
     <div class="contenedor">
             <div class="menu active">
                 <div class="logo_contenido">
@@ -82,10 +85,14 @@
                     <div class="perfil">
                         <div class="detalles_perfil">
                         <?php
-                            if(isset($_SESSION["imagen"])){
-                                ?>
-                                <img src="Imagenes/<?php print $_SESSION["imagen"] ?>" alt="">
-                                <?php             
+                            if(isset($_SESSION["usuario"])){
+                                $user = $_SESSION["usuario"];
+                                $result = conectar()->query('SELECT * FROM usuarios Where Nombre="'.$user.'"');
+                                while ($row = $result->fetch_assoc()) {
+                                    ?>
+                                    <img src="Imagenes/<?php print ($row['Imagen']) ?>" alt="">
+                                    <?php 
+                                }             
                             }
                             else{
                                 ?>
@@ -127,7 +134,6 @@
                 </div>
             </div>
         <div class="subcontenedor2">
-            BIENVENIDO A RETROSTAR
         </div>
     </div>
     

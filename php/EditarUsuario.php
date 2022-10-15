@@ -8,9 +8,8 @@ $nombre = $_POST['NombreUsuario'];
 $contraseña = $_POST['ContraseñaUsuario'];
 $email = $_POST['EmailUsuario'];
 $telefono = $_POST['TlfUsuario'];
-$imagen = $_POST['ImagenUsuario'];
 
-print($nombre);
+
 //variables para comprobaciones
 $valNombre=false;
 $valContraseña=false;
@@ -27,12 +26,10 @@ $exp_telefono = "/^[9|6]{1}([\d]{2}[-]*){3}[\d]{2}$/";
 //hacemos las comprobaciones para saber si los campos cumplen las condiciones
 if($nombre =! null){
     if(preg_match($exp_nombre,$nombre)){
-        print("correcto");
         $valNombre=true;
     }
     else{
         $valNombre=false;
-        print("incorrecto");
     }
 }
 
@@ -64,12 +61,7 @@ if($telefono != null){
     }
 }
 
-if($imagen != null){
-    $valImagen = true;
-}
-else{
-    $valImagen = false;
-}
+
 
 $conexion = conectar();
 
@@ -80,13 +72,11 @@ if($valNombre==true){
 }
 
 if($valContraseña==true){
-    print("entra2");
     $sentencia = 'UPDATE usuarios SET Contraseña="'.$contraseña.'" WHERE Nombre="'.$usuario.'"';
     $consulta2 = mysqli_query($conexion,$sentencia);
 }
 
 if($valEmail==true){
-    print("entra3");
     $sentencia = 'UPDATE usuarios SET Email="'.$email.'" WHERE Nombre="'.$usuario.'"';
     $consulta2 = mysqli_query($conexion,$sentencia);
 }
@@ -96,13 +86,24 @@ if($valTelefono==true){
     $consulta2 = mysqli_query($conexion,$sentencia);
 }
 
-if($valImagen==true){
-    $sentencia = 'UPDATE usuarios SET Imagen="'.$imagen.'" WHERE Nombre="'.$usuario.'"';
-    $consulta2 = mysqli_query($conexion,$sentencia);
+
+$rutaDestino = "..\Imagenes\ ". $_FILES['ImagenUsuario']['name'];
+$rutaDestino2= str_replace(" ","",$rutaDestino);
+$rutaOrigen = $_FILES['ImagenUsuario']['tmp_name'];
+$extensiones = array(0=>'image/jpg',1=>'image/jpeg',2=>'image/png');
+$max_tamanyo = 1024 * 1024 * 8;
+if(isset($_FILES["ImagenUsuario"]) && $_FILES["ImagenUsuario"]["name"]){
+    if ( in_array($_FILES['ImagenUsuario']['type'], $extensiones) ) {
+        if ( $_FILES['ImagenUsuario']['size']< $max_tamanyo ) {
+            if( move_uploaded_file ( $rutaOrigen, $rutaDestino2 ) ) {
+                $sentencia = 'UPDATE usuarios SET Imagen="'.$_FILES['ImagenUsuario']['name'].'" WHERE Nombre="'.$usuario.'"';
+                $consulta2 = mysqli_query($conexion,$sentencia); 
+                ?>
+                cargarPagina(e);
+                <?php 
+            }
+        }
+   }
 }
-
-$carpetaImagen = "Imagenes/";
-
-if(isset($_FILES["ImagenUsuario"]) && $_FILES["archivo"]["name"][0]){
-
-}
+header("Location:../IndexPrincipal.php");
+?>

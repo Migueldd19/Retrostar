@@ -59,7 +59,9 @@ if($valNombre==true && $valContraseña==true){
         //comprobamos que el usuario esta en base de datos y coincide con la contraseña
         while($fila=$consulta->fetch_assoc()){
             if($fila['Nombre']==$nombre){
+                print("nombre bien");
                 if($fila['Contraseña']==$contraseña){
+                    print("pass bien");
                     $_SESSION["usuario"] = $nombre;
                     if($fila['Imagen'] != "0"){
                         $_SESSION["imagen"] = $fila['Imagen'];
@@ -69,15 +71,21 @@ if($valNombre==true && $valContraseña==true){
                     }
                     header("Location:/IndexPrincipal.php");
                 }
+                else{
+                    ?>
+                    <script>
+                        document.cookie = "Pagina = login_registro.php"; 
+                    </script>
+                    <?php
+                    header("Location:/IndexPrincipal.php");
+                }
             }
             else{
                 ?>
                 <script>
-                    alert("El usuario y la contraseña no coinciden.");
-                    
+                    document.cookie = "Pagina = login_registro.php";
                 </script>
                 <?php
-                
                 header("Location:/IndexPrincipal.php");
             }
         }
@@ -85,12 +93,8 @@ if($valNombre==true && $valContraseña==true){
 }else{
     ?>
     <script>
-        alert("Usuario o Contraseña incorrectos.");
         document.cookie = "Pagina = login_registro.php";
     </script>
     <?php
-    
 }
-
 ?>
-
