@@ -32,10 +32,6 @@ function e(){
         $(".subcontenedor2").load("php/ListaDeseos.php")
     })
 
-    $("#amigos").click(function(){
-        $(".subcontenedor2").load("php/Amigos.php")
-    })
-
     $("#usuarios").click(function(){
         $(".subcontenedor2").load("php/Usuarios.php")
     })

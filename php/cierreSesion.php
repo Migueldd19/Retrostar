@@ -10,5 +10,4 @@ session_destroy();
 <script type="text/javascript">
 location.reload();    
 $(".subcontenedor2").load("Juegos.php");
-
 </script>

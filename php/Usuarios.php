@@ -8,9 +8,6 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/usuarios.css">
 
-    <!-- Boostrap -->
-    
-
     <!-- JAVASCRIPT -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"> </script>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
@@ -38,37 +35,39 @@ session_start();
                     <h1>Bienvenido <?php print $row['Nombre'];?></h1>
                 </div>
                 <div class="subcontenedor">
-                    <form action="EditarUsuario.php" method="POST" enctype="multipart/form-data">
-                        <label>Nombre: 
-                        <input type="text" id="nombreUsuario" name="NombreUsuario" value="<?php print $row['Nombre'];?>">
+                    <form action="php/EditarUsuario.php" method="POST" enctype="multipart/form-data">
+                        <label class="campos">Nombre: <?php print $row['Nombre'];?> </label>
+                    
+                        <label class="campos">Contraseña: 
+                        <input type="text"  id="contraseñaUsuario" name="ContraseñaUsuario" value="<?php print $row['Contraseña'];?>">
                         </label>
 
-                        <label>Contraseña: 
-                        <input type="text" id="contraseñaUsuario" name="ContraseñaUsuario" value="<?php print $row['Contraseña'];?>">
+                        <label class="campos">ID de Usuario: <?php print $row['IDusuario'];?></label>
+
+                        <label class="campos">Email: 
+                        <input type="text"  id="emailUsuario"  name="EmailUsuario" value="<?php print $row['Email'];?>">
                         </label>
 
-                        <label>ID de Usuario: <?php print $row['IDusuario'];?></label>
-
-                        <label>Email: 
-                        <input type="text" id="emailUsuario" name="EmailUsuario" value="<?php print $row['Email'];?>">
+                        <label class="campos">Telefono: 
+                        <input type="text" id="tlfUsuario"  name="TlfUsuario" value="<?php print $row['Telefono'];?>">
                         </label>
 
-                        <label>Telefono: 
-                        <input type="text" id="tlfUsuario" name="TlfUsuario" value="<?php print $row['Telefono'];?>">
+                        <label class="campos">Rol: <?php print $row['Rol'];?></label>
+
+                        <label class="campos" id="imagen">Imagen: <img src="Imagenes/<?php print $row['Imagen'] ?>" alt="">
+                            <input type="file" class="imagen_formulario"  name="ImagenUsuario">
                         </label>
 
-                        <label>Rol: <?php print $row['Rol'];?></label>
-
-                        <label>Imagen: <img src="Imagenes/<?php print $row['Imagen'] ?>" alt="">
-                        <input type="file" name="ImagenUsuario">
-                        </label>
-
-                        <input type="submit" onclick="cargarPagina()" value="Realizar Cambios" id="enviar">
-                        <a href="eleminarUsuario.php">
-                            <button>Eleminar Usuario</button>
-                        </a> 
+                        <input type="submit" class="campo_enviar" onclick="cargarPagina()" value="Realizar Cambios" id="enviar">
                         
                     </form>
+
+                    <div class="btn_eleminar">
+                        <a href="php/eleminarUsuario.php" class="eleminar" onclick="cargarPagina2()">
+                            <button class="eleminar">Eleminar Usuario</button>
+                        </a>
+                    </div>
+                    
                 </div>
             </div>
             <?php 
@@ -79,5 +78,8 @@ session_start();
     function cargarPagina() {
             document.cookie = "Pagina = Usuarios.php";                             
         }
+    function cargarPagina2() {
+        document.cookie = "Pagina = Juegos.php";                             
+    }
 </script>
 

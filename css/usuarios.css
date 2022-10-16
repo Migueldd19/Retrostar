@@ -31,8 +31,10 @@
 .subcontenedor{
     display: flex;
     width: 100%;
+    height: 100%;
     flex-wrap: wrap;
-    align-content: flex-start;
+    align-content: center;
+    flex-direction: column;
     margin: 30px;
     margin-top: -100;
 }
@@ -41,12 +43,101 @@ form{
     flex-wrap: wrap;
     align-items: flex-start;
     flex-direction: column;
+    width: 250px;
 }
-img{
-    width: 100px;
-    height: 100%;
-    margin-left: 10px;
-    border-radius: 10px;
-    border: 1px solid black;
+#imagen{
+    width: 100%;
+    margin-top: 90px;
     
+}
+#imagen img{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    margin-top: -82px;
+    margin-left: 17px;
+}
+.imagen_formulario{
+    display: none;
+}
+label {
+    color:  #c2c2c5;
+    width: 23%;
+    display: block;
+    font-size: 14px;
+    height: 16px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+.campos {
+    background: transparent;
+    border: 0;
+    box-shadow:inset 0px -8px 1px -6px rgba(0,178,255,1);
+    color: #f2f2f2;
+    font-size: 13px;
+    height: 30px;
+    line-height: 30px;
+    outline: none !important;
+    width: 100%;
+}
+.campos::-moz-focus-inner { 
+    border: 0; 
+}
+.campo_enviar::-moz-focus-inner { 
+    border: 0; 
+}
+input{
+    border: 0;
+    background: none;
+    width: 150px;
+    color: #c2c2c5;
+}
+input::-moz-focus-inner{
+    border: 0;
+    background: none;
+}
+.campo_enviar {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background: transparent;
+    border: 0;
+    border-radius: 5px;
+    box-shadow: rgba(75, 219, 18, 0.17) 0px -23px 25px 0px inset, rgba(75, 219, 18, 0.17) 0px -36px 30px 0px inset, rgba(75, 219, 18, 0.17) 0px -79px 40px 0px inset, rgba(75, 219, 18, 0.17) 0px 2px 1px, rgba(75, 219, 18, 0.17) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    color: #f2f2f2;
+    font-size: 13px;
+    height: 30px;
+    line-height: 30px;
+    outline: none !important;
+    width: 100%;
+}
+.campo_enviar:hover{
+    box-shadow: rgba(75, 219, 18, 0.504) 0px -23px 25px 0px inset, rgba(75, 219, 18, 0.499) 0px -36px 30px 0px inset, rgba(75, 219, 18, 0.527) 0px -79px 40px 0px inset,rgba(75, 219, 18, 0.513) 0px 2px 1px, rgba(75, 219, 18, 0.518) 0px 4px 2px, rgba(0, 0, 0, 0.508) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.47) 0px 32px 16px;
+}
+.campo_enviar::-moz-focus-inner { 
+    border: 0; 
+}
+.btn_eleminar{
+    width: 250px;
+    margin-top: 7px;
+    background: transparent;
+    border: 0;
+    border-radius: 5px;
+    box-shadow: rgba(219, 18, 18, 0.17) 0px -23px 25px 0px inset, rgba(219, 18, 18, 0.17) 0px -36px 30px 0px inset, rgba(219, 18, 18, 0.17) 0px -79px 40px 0px inset, rgba(219, 18, 18, 0.17) 0px 2px 1px, rgba(219, 18, 18, 0.17) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    font-size: 13px;
+    height: 30px;
+    line-height: 30px;
+    outline: none !important;
+}
+.btn_eleminar:hover{
+    box-shadow:rgba(219, 18, 18, 0.463) 0px -23px 25px 0px inset, rgba(219, 18, 18, 0.539) 0px -36px 30px 0px inset, rgba(219, 18, 18, 0.534) 0px -79px 40px 0px inset, rgba(219, 18, 18, 0.52) 0px 2px 1px, rgba(219, 18, 18, 0.51) 0px 4px 2px, rgba(0, 0, 0, 0.51) 0px 8px 4px, rgba(0, 0, 0, 0.491) 0px 16px 8px, rgba(0, 0, 0, 0.496) 0px 32px 16px;
+}
+.eleminar{
+    background: transparent;
+    border: 0;
+    color: #f2f2f2;
+    font-size: 13px;
+    height: 30px;
+    line-height: 30px;
+    outline: none !important;
+    width: 100%;
 }
