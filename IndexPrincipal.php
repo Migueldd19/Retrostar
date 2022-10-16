@@ -89,10 +89,17 @@
                                 $user = $_SESSION["usuario"];
                                 $result = conectar()->query('SELECT * FROM usuarios Where Nombre="'.$user.'"');
                                 while ($row = $result->fetch_assoc()) {
-                                    ?>
-                                    <img src="Imagenes/<?php print ($row['Imagen']) ?>" alt="">
-                                    <?php 
-                                }             
+                                    if($row['Imagen'] != null){
+                                        ?>
+                                        <img src="Imagenes/<?php print ($row['Imagen']) ?>" alt="">
+                                        <?php
+                                    }
+                                    else{
+                                        ?>
+                                        <img src="Imagenes/user.png" alt="">
+                                        <?php
+                                    }  
+                                }           
                             }
                             else{
                                 ?>

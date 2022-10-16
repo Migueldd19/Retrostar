@@ -32,7 +32,7 @@ session_start();
             ?>
             <div class="contenedor">
                 <div class="titulo">
-                    <h1>Bienvenido <?php print $row['Nombre'];?></h1>
+                    <h1>Bienvenido/a <?php print $row['Nombre'];?></h1>
                 </div>
                 <div class="subcontenedor">
                     <form action="php/EditarUsuario.php" method="POST" enctype="multipart/form-data">
@@ -82,4 +82,5 @@ session_start();
         document.cookie = "Pagina = Juegos.php";                             
     }
 </script>
-
+</body>
+</html>

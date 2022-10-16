@@ -8,7 +8,6 @@ let emailRegistro = false;
 let telefonoRegistro = false;
 
 function enviar(e){
-    
     //detengo el envio del formulario para comprobar los campos
     e.preventDefault();
 

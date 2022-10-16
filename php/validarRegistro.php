@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Validar Registro</title>
+    
+</head>
+<body>
+
 <?php
 require("conectarDB.php");
 
@@ -68,7 +80,6 @@ if($valNombre==true && $valContraseña==true && $valContraseña2==true && $valEm
     while($fila=$consulta2->fetch_assoc()){
         if($fila['Nombre']==$nombre){
             $usuarioValido = false;
-            print "Ese Usuario ya existe";
             exit();
         }
     }
@@ -80,15 +91,14 @@ if($valNombre==true && $valContraseña==true && $valContraseña2==true && $valEm
     
         $consulta = mysqli_query($conexion,$sentencia);
         if($consulta){
-            print "Nuevo usuario creado con exito";
-        }
-        else{
-            print "Error ".$conexion->error; 
+            session_start();
+            $_SESSION['usuario'] = $nombre;
+            header('Refresh: 5; URL=../IndexPrincipal.php');
+            print '<p class="alert alert-success agileits" role="alert">Captura realizada correctamente!</p>';
         }
     }
-    
-    $conexion->close();
-
 }
-
 ?>
+
+</body>
+</html>
