@@ -14,8 +14,6 @@
     <!-- JAVASCRIPT -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"> </script>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-    <script src="javaScript/validarCambiosUsuario.js"></script>
-    
 
     <!-- ICONOS -->
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
@@ -40,7 +38,7 @@ session_start();
                     <h1>Bienvenido <?php print $row['Nombre'];?></h1>
                 </div>
                 <div class="subcontenedor">
-                    <form action="/php/EditarUsuario.php" method="POST" enctype="multipart/form-data">
+                    <form action="EditarUsuario.php" method="POST" enctype="multipart/form-data">
                         <label>Nombre: 
                         <input type="text" id="nombreUsuario" name="NombreUsuario" value="<?php print $row['Nombre'];?>">
                         </label>

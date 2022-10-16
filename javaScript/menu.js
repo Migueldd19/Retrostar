@@ -12,16 +12,11 @@ function e(){
 
     /* click en sesion*/
     $("#log_out").click(function(){
-        
         $(".contenido_perfil").toggleClass("active");
-        
     })
-
-    
+       
     let pagina = obtenerCookie("Pagina");
     $(".subcontenedor2").load("php/"+pagina);
-    
-    
     
     /*cargas de todas las paginas a la principal*/
 

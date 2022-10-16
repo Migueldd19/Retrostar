@@ -4,34 +4,23 @@ require("conectarDB.php");
 session_start();
 $usuario = $_SESSION["usuario"];
 
-$nombre = $_POST['NombreUsuario'];
 $contraseña = $_POST['ContraseñaUsuario'];
 $email = $_POST['EmailUsuario'];
 $telefono = $_POST['TlfUsuario'];
 
 
 //variables para comprobaciones
-$valNombre=false;
 $valContraseña=false;
 $valEmail=false;
 $valTelefono=false;
 $valImagen=false;
 
 //espresiones regulares
-$exp_nombre = "/^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$/";
 $exp_contraseña = "/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/";
 $exp_email = "/^[\w]+@{1}[\w]+\.+[a-z]{2,3}$/";
 $exp_telefono = "/^[9|6]{1}([\d]{2}[-]*){3}[\d]{2}$/";
 
 //hacemos las comprobaciones para saber si los campos cumplen las condiciones
-if($nombre =! null){
-    if(preg_match($exp_nombre,$nombre)){
-        $valNombre=true;
-    }
-    else{
-        $valNombre=false;
-    }
-}
 
 if($contraseña != null){
     if(preg_match($exp_contraseña,$contraseña)){
@@ -65,12 +54,6 @@ if($telefono != null){
 
 $conexion = conectar();
 
-if($valNombre==true){
-    print("entra1");
-    $sentencia = 'UPDATE usuarios SET Nombre="'.$nombre.'" WHERE Nombre="'.$usuario.'"';
-    $consulta2 = mysqli_query($conexion,$sentencia);
-}
-
 if($valContraseña==true){
     $sentencia = 'UPDATE usuarios SET Contraseña="'.$contraseña.'" WHERE Nombre="'.$usuario.'"';
     $consulta2 = mysqli_query($conexion,$sentencia);
@@ -87,14 +70,15 @@ if($valTelefono==true){
 }
 
 
-$rutaDestino = "..\Imagenes\ ". $_FILES['ImagenUsuario']['name'];
+$rutaSemi = "..\Imagenes\ ";
+$rutaDestino = $rutaSemi.$rutaDestino;
 $rutaDestino2= str_replace(" ","",$rutaDestino);
 $rutaOrigen = $_FILES['ImagenUsuario']['tmp_name'];
 $extensiones = array(0=>'image/jpg',1=>'image/jpeg',2=>'image/png');
-$max_tamanyo = 1024 * 1024 * 8;
+//$max_tamaño = 1024 * 1024 * 8;
 if(isset($_FILES["ImagenUsuario"]) && $_FILES["ImagenUsuario"]["name"]){
     if ( in_array($_FILES['ImagenUsuario']['type'], $extensiones) ) {
-        if ( $_FILES['ImagenUsuario']['size']< $max_tamanyo ) {
+        //if ( $_FILES['ImagenUsuario']['size']< $max_tamaño ) {
             if( move_uploaded_file ( $rutaOrigen, $rutaDestino2 ) ) {
                 $sentencia = 'UPDATE usuarios SET Imagen="'.$_FILES['ImagenUsuario']['name'].'" WHERE Nombre="'.$usuario.'"';
                 $consulta2 = mysqli_query($conexion,$sentencia); 
@@ -102,7 +86,7 @@ if(isset($_FILES["ImagenUsuario"]) && $_FILES["ImagenUsuario"]["name"]){
                 cargarPagina(e);
                 <?php 
             }
-        }
+        //}
    }
 }
 header("Location:../IndexPrincipal.php");

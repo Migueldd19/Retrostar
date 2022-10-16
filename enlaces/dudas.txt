@@ -1,3 +1,3 @@
-1- no se me enlaza validarCambiosUsuario
+
 2- error en la validacion del nombre al editar validarCambiosUsuario
 3- mirar bien el tema de que al principio inicie en la pagina de juegos
