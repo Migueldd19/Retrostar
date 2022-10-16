@@ -8,12 +8,10 @@ $contraseña = $_POST['ContraseñaUsuario'];
 $email = $_POST['EmailUsuario'];
 $telefono = $_POST['TlfUsuario'];
 
-
 //variables para comprobaciones
 $valContraseña=false;
 $valEmail=false;
 $valTelefono=false;
-$valImagen=false;
 
 //espresiones regulares
 $exp_contraseña = "/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/";
@@ -70,24 +68,21 @@ if($valTelefono==true){
 }
 
 
-$rutaSemi = "..\Imagenes\ ";
-$rutaDestino = $rutaSemi.$rutaDestino;
+$rutaSemi = '..\Imagenes\ ';
+$ruta1 = str_replace(" ","",$rutaSemi);
+$rutaDestino = $ruta1.$_FILES['ImagenUsuario']['name'];
 $rutaDestino2= str_replace(" ","",$rutaDestino);
 $rutaOrigen = $_FILES['ImagenUsuario']['tmp_name'];
 $extensiones = array(0=>'image/jpg',1=>'image/jpeg',2=>'image/png');
-//$max_tamaño = 1024 * 1024 * 8;
+
 if(isset($_FILES["ImagenUsuario"]) && $_FILES["ImagenUsuario"]["name"]){
     if ( in_array($_FILES['ImagenUsuario']['type'], $extensiones) ) {
-        //if ( $_FILES['ImagenUsuario']['size']< $max_tamaño ) {
-            if( move_uploaded_file ( $rutaOrigen, $rutaDestino2 ) ) {
-                $sentencia = 'UPDATE usuarios SET Imagen="'.$_FILES['ImagenUsuario']['name'].'" WHERE Nombre="'.$usuario.'"';
-                $consulta2 = mysqli_query($conexion,$sentencia); 
-                ?>
-                cargarPagina(e);
-                <?php 
-            }
-        //}
+        if( move_uploaded_file ( $rutaOrigen, $rutaDestino2 ) ) {
+            $sentencia = 'UPDATE usuarios SET Imagen="'.$_FILES['ImagenUsuario']['name'].'" WHERE Nombre="'.$usuario.'"';
+            $consulta2 = mysqli_query($conexion,$sentencia); 
+        }
    }
 }
 header("Location:../IndexPrincipal.php");
+
 ?>
