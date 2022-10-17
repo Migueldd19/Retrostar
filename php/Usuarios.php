@@ -54,7 +54,20 @@ session_start();
 
                         <label class="campos">Rol: <?php print $row['Rol'];?></label>
 
-                        <label class="campos" id="imagen">Imagen: <img src="Imagenes/<?php print $row['Imagen'] ?>" alt="">
+                        <label class="campos" id="imagen">Imagen: 
+                            <?php
+                            if($row['Imagen']){
+                            ?>
+                                <img src="Imagenes/<?php print $row['Imagen'] ?>" alt="">
+                            <?php
+                            }
+                            else{
+                                ?>
+                                <img src="Imagenes/user.png" alt="">
+                                <?php
+                            }
+                            ?>
+                            
                             <input type="file" class="imagen_formulario"  name="ImagenUsuario">
                         </label>
 

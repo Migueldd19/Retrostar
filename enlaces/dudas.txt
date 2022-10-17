@@ -1,3 +1,1 @@
-
-2- Error a la hora de registrar un nuevo usuario
-3- mirar bien el tema de que al principio inicie en la pagina de juegos
+1- mirar bien el tema de que al principio inicie en la pagina de juegos

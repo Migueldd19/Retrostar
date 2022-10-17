@@ -53,11 +53,11 @@ function validarContraseñaRegistro(x){
 
     if(exp_contraseña.test(x)){
         document.getElementById("Contraseña_registro").style.borderBottom = "1px solid green";
-        let contraseñaRegistro = true;
+        contraseñaRegistro = true;
     }
     else{
         document.getElementById("Contraseña_registro").style.borderBottom = "1px solid red";
-        let contraseñaRegistro = false;
+        contraseñaRegistro = false;
     }
     
 }
@@ -69,17 +69,17 @@ function validarContraseña2Registro(x, y){
     if(exp_contraseña2.test(x)){
         if(x == y){
             document.getElementById("Contraseña2_registro").style.borderBottom = "1px solid green";
-            let contraseña2Registro = true;
+            contraseña2Registro = true;
         }
         else{
             document.getElementById("Contraseña2_registro").style.borderBottom = "1px solid red";
-            let contraseñaRegistro = false;
+            contraseñaRegistro = false;
         }
     }
     else{
         
         document.getElementById("Contraseña2_registro").style.borderBottom = "1px solid red";
-        let contraseñaRegistro = false;
+        contraseñaRegistro = false;
     }
     
 }
@@ -90,11 +90,11 @@ function validarEmail(x){
 
     if(exp_email.test(x)){
         document.getElementById("email_registro").style.borderBottom = "1px solid green";
-        let emailRegistro = true;
+        emailRegistro = true;
     }
     else{
         document.getElementById("email_registro").style.borderBottom = "1px solid red";
-        let emailRegistro = false;
+        emailRegistro = false;
     }
 }
 

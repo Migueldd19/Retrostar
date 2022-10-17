@@ -93,11 +93,10 @@ if($valNombre==true && $valContraseña==true && $valContraseña2==true && $valEm
         if($consulta){
             session_start();
             $_SESSION['usuario'] = $nombre;
-            header('Refresh: 5; URL=../IndexPrincipal.php');
-            print '<p class="alert alert-success agileits" role="alert">Captura realizada correctamente!</p>';
         }
     }
 }
+header('location:../IndexPrincipal.php');
 ?>
 
 </body>
