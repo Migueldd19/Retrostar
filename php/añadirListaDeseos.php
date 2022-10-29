@@ -4,6 +4,7 @@ require("conectarDB.php");
 session_start();
 $nombre = $_SESSION["usuario"];
 $juego = $_COOKIE['NombreJuego'];
+
 $valido = true;
 
 $result = conectar()->query('SELECT * FROM listadeseos WHERE Usuario = "'.$nombre.'"');
@@ -32,3 +33,10 @@ else{
 unset($_COOKIE['NombreJuego']);
 
 ?>
+<script>
+    onload(e);
+    function e (){
+        document.cookie = "Pagina = Juegos.php";
+    }
+    
+</script>

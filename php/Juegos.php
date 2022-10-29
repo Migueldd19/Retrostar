@@ -152,9 +152,11 @@ $result = conectar()->query('SELECT * FROM juegos');
             
         }
         function listaDeseos(e) {
+            alert("Juego añadido a tu lista de deseos");
             document.cookie = "NombreJuego = "+e;
             document.cookie = "Pagina = ListaDeseos.php";
-            window.location.replace("php/añadirListaDeseos.php");                             
+            window.location.replace("php/añadirListaDeseos.php"); 
+                                        
         }
                                          
     </script>
