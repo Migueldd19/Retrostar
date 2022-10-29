@@ -7,6 +7,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/juegos.css">
+    <link rel="stylesheet" href="css/compra.css">
 
     <!-- Boostrap -->
     
@@ -14,7 +15,7 @@
     <!-- JAVASCRIPT -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"> </script>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-    
+    <script src="javaScript/compra.js"></script>
 
     <!-- ICONOS -->
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
@@ -73,10 +74,10 @@ $result = conectar()->query('SELECT * FROM juegos');
                                 <i class='bx bx-plus-circle' onclick="return listaDeseos('<?php print $row['Nombre'];?>');"></i>
                             </div>
                             
-                            <div class="carrito"><i class="bx bxs-cart" onclick="comprar()"></i></div>
+                            <div class="carrito"><i class="bx bxs-cart" onclick="return comprar('<?php print $row['Nombre'];?>');"></i></div>
                         </div>   
                     </div>
-                </div>
+                </div>   
             <?php
             }
     }
@@ -117,6 +118,12 @@ $result = conectar()->query('SELECT * FROM juegos');
         }
     }
     ?>
+    </div> 
+    <div class="compra">
+        <?php
+            $juego = $_COOKIE['NombreJuego'];
+            print($juego);
+        ?>
     </div>
 
 
@@ -150,7 +157,13 @@ $result = conectar()->query('SELECT * FROM juegos');
     
         function comprar(e){
             
+            $(".compra").toggleClass("active");
+            $(".contenedor").toggleClass("active");
+            document.cookie = "NombreJuego = "+e;
+        
         }
+            
+        
         function listaDeseos(e) {
             alert("Juego añadido a tu lista de deseos");
             document.cookie = "NombreJuego = "+e;

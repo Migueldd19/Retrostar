@@ -3,10 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/juegos.css">
+
+    <!-- Boostrap -->
+    
+
+    <!-- JAVASCRIPT -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"> </script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    
+
+    <!-- ICONOS -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Lista de Deseos</title>
+    
 </head>
 <body>
-    <h1>LIBRERIIIIIIAAAA</h1>
+    <?php
+        require("conectarDB.php");
+
+        session_start();
+        $nombre = null;
+        if(isset($_SESSION["usuario"])){
+            $nombre = $_SESSION["usuario"];
+        }
+        
+    ?>
+    <div class="busqueda">
+        <p class="titulo">Mis Juegos</p>
+        <div class="lupa">
+            <i class='bx bx-search-alt-2' ></i>
+        </div>                        
+        <input type="text" name="busqueda" id="busqueda" placeholder="Busqueda..." onkeyup=recoger()>
+    </div>
+    <div class="contenedor">
+        
+    <?php
+        $result = conectar()->query('SELECT * FROM juegos INNER JOIN biblioteca ON juegos.Nombre = biblioteca.Juego WHERE biblioteca.Usuario = "'.$nombre.'"');
+        while ($row = $result->fetch_assoc()){
+                ?>
+                <div class="col-lg-3" id="caja">
+                    <div class="imagen">
+                        <img src="Imagenes/<?php print $row['Imagen'] ?>" alt="">
+                    </div>
+                    <div class="nombre">
+                        <?php print $row['Nombre'];?>
+                    </div>
+                    <div class="subcontenedor">
+                        <div class="descripcion">
+                            <?php print $row['Descripcion'] ?>
+                        </div>
+                        <div class="precio">
+                            <?php
+                            if($row['Precio']!="0") {
+                                print $row['Precio'].'€';
+                            }
+                            else{
+                                print 'Gratis';
+                            }
+                            ?>
+                        </div>   
+                    </div>
+                </div>
+            <?php
+        }
+    ?>
+    </div>
+
 </body>
 </html>

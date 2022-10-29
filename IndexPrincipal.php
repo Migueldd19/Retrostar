@@ -49,9 +49,9 @@
                     <li id="biblioteca">
                         <a href="#">
                             <i class='bx bx-book' ></i>
-                            <span class="nombres">Mi Biblioteca</span>
+                            <span class="nombres">Mis Juegos</span>
                         </a>
-                        <span class="tooltip">Mi Biblioteca</span>
+                        <span class="tooltip">Mis Juegos</span>
                     </li>
                     <li id="deseos">
                         <a href="#">

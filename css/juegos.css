@@ -52,6 +52,23 @@ input{
     justify-content: center;
     align-items: flex-start;
     overflow-y: scroll;
+    margin-right: 0%;
+}
+.contenedor.active{
+    width: 75%;
+}
+.compra{
+    display: none;
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    background-color: red;
+    top: 7%;
+    left: 75%;
+    
+}
+.compra.active{
+    display: flex;
 }
 .contenedor::-webkit-scrollbar{
     width: 7px;
