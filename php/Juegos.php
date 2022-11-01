@@ -7,7 +7,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/juegos.css">
-    <link rel="stylesheet" href="css/compra.css">
+    <!--<link rel="stylesheet" href="css/compra.css"> -->
 
     <!-- Boostrap -->
     
@@ -119,13 +119,6 @@ $result = conectar()->query('SELECT * FROM juegos');
     }
     ?>
     </div> 
-    <div class="compra">
-        <?php
-            $juego = $_COOKIE['NombreJuego'];
-            print($juego);
-        ?>
-    </div>
-
 
 </body>
 
@@ -140,7 +133,6 @@ $result = conectar()->query('SELECT * FROM juegos');
             if(busqueda != null || busqueda != ""){
                 for(let i = 0; i<juegos.length; i++){
                     let texto = juegos[i].innerHTML.toUpperCase();
-                    
                     
                     if(texto.includes(busqueda)){
                         $(".col-lg-3").eq(i).show(); 
@@ -157,10 +149,9 @@ $result = conectar()->query('SELECT * FROM juegos');
     
         function comprar(e){
             
-            $(".compra").toggleClass("active");
-            $(".contenedor").toggleClass("active");
             document.cookie = "NombreJuego = "+e;
-        
+            window.location.replace("php/compra.php");
+            
         }
             
         

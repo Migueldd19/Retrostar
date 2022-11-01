@@ -10,6 +10,7 @@ function e(){
         
     })
 
+    
     /* click en sesion*/
     $("#log_out").click(function(){
         $(".contenido_perfil").toggleClass("active");
@@ -57,6 +58,7 @@ function e(){
             let busca = listaCookies[i].search("Pagina");
             
             if (busca == 1) {
+                
                 let prueba = listaCookies[i].split("=");
                 let resultado = prueba["1"];
                 return resultado;

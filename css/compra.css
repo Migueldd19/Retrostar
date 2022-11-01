@@ -1,0 +1,200 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.contenedor{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    background-color: #1D1B31;
+}
+.subcontenedor1{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    border-right: 3px solid #11101d;
+} 
+.titulo{
+    background-color: #11101d;
+    color: beige;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    flex-basis: 100%;
+    align-items: center;
+    box-shadow:inset 0px -8px 1px -6px rgba(0,178,255,1);
+}
+.texto{
+    width: 80%;
+    padding-left: 20px;
+} 
+.usuario{
+    width: 20%;
+    padding-left: 10px;
+    font-size: 21px;
+}
+.usuario img{
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    margin-top: 3px;
+    margin-right: 3px;
+}
+.cuerpo{
+    width: 100%;
+    height: 90vh;
+}
+.cuerpo h3{
+    color: azure;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.caja{
+    background-color: #19172b;
+    width: 95%;
+    height: 100%;
+    text-align: center;
+    margin: 20px;
+}
+.nombre{
+    font-size: 25px;
+    display:inline;
+    color: white;
+    padding: 15px;
+    padding-bottom: 5px;
+    border-radius: 20px;
+    box-shadow: rgba(24, 131, 137, 0.914) 0px 20px 7px -15px;
+}
+.imagen{
+    padding: 18px;
+    padding-top: 40px;
+}
+.imagen img{
+    width: 300px;
+    height: 200px;
+    padding: 3px;
+    border-radius:50px 50px 50px 50px;
+    box-shadow:0 0 5px rgba(0,178,255,1);
+}
+.descripcion{
+    color: azure;
+    width: 50%;
+    margin: auto;
+    padding-bottom: 20px;
+    text-align: center;
+}
+.subcontenedor2{
+    width: 30%;
+    height: 100%;
+    
+}
+.cabecera{
+    display: flex;
+    color: white;
+    width: 100%;
+    height: 10vh;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.texto2{
+    width: 80%;
+    padding-left: 20px;
+}
+.cierre{
+    width: 20%;
+    padding-top: 5px; 
+}
+.cierre:hover{
+    cursor: nw-resize;
+}
+.cierre img{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+.contenido{
+    width: 100%;
+    height: 70vh;
+}
+.principal{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+}
+.imagen2{
+    width: 40%;
+    height: 50px;
+    padding-left: 15px;
+}
+.imagen2 img{
+    width: 100px;
+    height: 100px;
+    border-radius:50px 50px 50px 50px;
+    box-shadow:0 0 5px rgba(0,178,255,1);
+}
+.nombre2{
+    font-size: 40px;
+    margin-left:30px ;
+    padding-top: 25px;
+    color: azure;
+    box-shadow:inset 0px -8px 1px -6px rgba(0,178,255,1);
+}
+.secundario{
+    width: 100%;
+    height: 300px;
+}
+.precio{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+    color: azure;
+}
+.text{
+    margin-left: 15px;
+}
+.operaciones{
+    margin-right: 14px;
+    align-items: flex-end;
+}
+.politica{
+    width: 90%;
+    color: azure;
+    margin: 20px;
+    font-size: 12px;
+}
+
+.pedido{
+    width: 100%;
+    height: 16vh;
+    box-shadow: inset 0px 8px 6px -6px rgb(24, 131, 137);
+    align-items: center;
+}
+.boton{
+    margin-top: 50px;
+    width: 60%;
+    height: 30px;
+    border-radius: 20px;
+    border: 0px;
+    margin-left: 20%;
+    cursor: pointer;
+    box-shadow: rgba(24, 131, 137) 0px -23px 25px 0px inset, rgba(24, 131, 137) 0px -36px 30px 0px inset, rgba(24, 131, 137, 0.635) 0px -79px 40px 0px inset, rgba(24, 131, 137, 0.521) 0px 2px 1px, rgba(24, 131, 137, 0.416) 0px 4px 2px, rgba(24, 131, 137, 0.31) 0px 8px 4px, rgba(24, 131, 137, 0.186) 0px 16px 8px;
+}
+#modal1{
+    width: 55%;
+    height: 300px;
+    position: relative;
+    left: 22%;
+    top: 30%;
+
+}
+#modal1 h2{
+    margin: 15px;
+    text-align: center;
+}
+
+
+

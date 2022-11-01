@@ -26,6 +26,8 @@
     <?php
         require("conectarDB.php");
 
+        
+
         session_start();
         $nombre = null;
         if(isset($_SESSION["usuario"])){
