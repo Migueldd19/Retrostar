@@ -26,7 +26,6 @@
             <div class="menu active">
                 <div class="logo_contenido">
                     <div class="logo">
-
                         <i class='bx bx-ghost bx-tada' ></i>
                         <i class='bx bx-game' ></i>
                         <div class="nombre_logo">RetroStar</div>
@@ -40,7 +39,6 @@
                         <i class='bx bx-home'></i>
                         <span class="nombres">Juegos</span>
                     </a>
-                    <span class="tooltip">Inicio</span>
                 </li>
                 <?php
                 session_start();
@@ -51,21 +49,18 @@
                             <i class='bx bx-book' ></i>
                             <span class="nombres">Mis Juegos</span>
                         </a>
-                        <span class="tooltip">Mis Juegos</span>
                     </li>
                     <li id="deseos">
                         <a href="#">
                             <i class='bx bx-file' ></i>
                             <span class="nombres">Lista de deseos</span>
                         </a>
-                        <span class="tooltip">Lista de deseos</span>
                     </li>
                     <li id="usuarios">
                         <a href="#">
                             <i class='bx bx-user'></i>
                             <span class="nombres">Usuario</span>
                         </a>
-                        <span class="tooltip">Usuario</span>
                     </li>
                 <?php
                 if(isset($_SESSION["rol"])){
@@ -75,8 +70,7 @@
                             <i class='bx bx-file' ></i>
                             <span class="nombres">Administrar</span>
                         </a>
-                        <span class="tooltip">Administrar</span>
-                </li>
+                    </li>
                 <?php
                 }
                 }

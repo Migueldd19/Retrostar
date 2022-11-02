@@ -17,23 +17,39 @@ function e(){
     })
        
     let pagina = obtenerCookie("Pagina");
-    $(".subcontenedor2").load("php/"+pagina);
+    if(pagina != null || pagina != ""){
+        $(".subcontenedor2").load("php/"+pagina);
+    }
+    else{
+        $(".subcontenedor2").load("Juegos.php");
+    }
     
+    $(".nombres").click(function(){
+        if(screen.width<="700"){
+            $(".menu").toggleClass("active");
+        }
+        
+    })
+
     /*cargas de todas las paginas a la principal*/
 
     $("#home").click(function(){
+        document.cookie = 'Pagina=Juegos.php; Path=/;';
         $(".subcontenedor2").load("php/Juegos.php");
     })
 
     $("#biblioteca").click(function(){
+        document.cookie = 'Pagina=Biblioteca.php; Path=/;';
         $(".subcontenedor2").load("php/Biblioteca.php")
     })
 
     $("#deseos").click(function(){
+        document.cookie = 'Pagina=ListaDeseos.php; Path=/;';
         $(".subcontenedor2").load("php/ListaDeseos.php")
     })
 
     $("#usuarios").click(function(){
+        document.cookie = 'Pagina=Usuarios.php; Path=/;';
         $(".subcontenedor2").load("php/Usuarios.php")
     })
 

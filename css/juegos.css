@@ -139,8 +139,12 @@ input{
     padding: 3px;
 }
 
-#deseo{
-    margin-right: 15px;
+.deseos{
+    margin-right: 10px;
+    cursor: pointer;
+}
+.carrito{
+    cursor: pointer;
 }
 
 .row items .item{

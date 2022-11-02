@@ -30,6 +30,11 @@ body{
 .menu.active{
     width: 320px;
 }
+.logo_contenido{
+    cursor: pointer;
+    align-items:center;
+    
+}
 .menu .logo_contenido .logo{
     color:#fff;
     display:flex;
@@ -38,7 +43,7 @@ body{
     align-items:center;
     opacity: 0;
     pointer-events: none;
-    transition: all 0.4s ease;
+    transition: all 0.8s ease;
     text-shadow:
 		0 0 5px rgba(0,178,255,1),
 		0 0 10px rgba(0,178,255,1),
@@ -53,7 +58,7 @@ body{
 .menu.active .logo_contenido .logo{
     opacity: 1;
     pointer-events: none;
-    transition: all 2s ease;
+    transition: all 0.5s ease;
 }
 .logo_contenido .logo i{
     font-size:35px;
@@ -76,6 +81,7 @@ body{
     line-height:50px;
     transform: translateX(-50%);
     opacity: 1;
+    cursor: pointer;
 }
 .menu.active #btn_menu{
     opacity: 0;
@@ -88,31 +94,6 @@ body{
     height:50px;
     width:100%;
     margin: 0 5px;
-}
-
-.menu li .tooltip{
-    position:absolute;
-    left:70px;
-    top:0;
-    transform: translateY(-50%);
-    height:35px;
-    width: 122px;
-    background:#fff;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    border-radius:8px;
-    line-height:35px;
-    text-align: center;
-    transition:0s;
-    opacity:0;
-    pointer-events: none;
-}
-.menu.active li .tooltip{
-    display:none;
-}
-.menu li:hover .tooltip{
-    top:50%;
-    transition: all 0.5s ease;
-    opacity:1;
 }
 .menu li input{
     position:absolute;
@@ -151,7 +132,7 @@ body{
 .menu .nombres{
     opacity: 0;
     pointer-events: none;
-    transition: all 0.4s ease;
+    transition: all 0.2s ease;
 }
 .menu.active .nombres{
     opacity: 1;
@@ -221,6 +202,7 @@ body{
     font-size:25px;
     border-radius: 12px;
     text-align: center;
+    cursor: pointer;
     
 }
 .menu.active .perfil #log_out{
@@ -236,7 +218,7 @@ body{
     height: 100%;
     left: 78px;
     transition: all 0.5s ease;
-    
+    background-color: #1d1b31;
 }
 .menu.active ~ .subcontenedor2{
     width: calc(100% - 320px);
@@ -253,6 +235,9 @@ body{
     }
     .menu.active{
         width: 100%;
+    }
+    .logo_contenido{
+        margin-left: 10%;
     }
 
 }
