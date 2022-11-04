@@ -16,7 +16,7 @@
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 
     <!-- ICONOS -->
-    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
     <title>Administrar</title>
     
@@ -29,7 +29,7 @@
     $users = conectar()->query('SELECT * FROM `usuarios`');
     ?>
 
-    <div class="contenedor">
+    <div class="contenedorAdmin">
         <div class="usuarios">
             <h1>Usuarios</h1>
             <table class="tbUsusarios">
@@ -44,16 +44,31 @@
             </tr>
             <?php
                 while ($row = $users->fetch_assoc()){
-            ?>
+                    $info = array($row['Nombre'],$row['Rol'])
+            ?>    
                     <tr>
-                        <td><?php print $row['Nombre']; ?></td>
-                        <td><?php print $row['IDusuario']; ?></td>
-                        <td><?php print $row['Contraseña']; ?></td>
-                        <td><?php print $row['Email']; ?></td>
-                        <td><?php print $row['Telefono']; ?></td>
-                        <td><img src="/Imagenes/<?php print $row['Imagen'] ?>" alt=""></td>
-                        <td><?php print $row['Rol']; ?></td>
-                        <i class="fa-solid fa-pen-to-square"></i>
+                        <td class="nombre"><?php print $row['Nombre']; ?></td>
+                        <td class="ID"><?php print $row['IDusuario']; ?></td>
+                        <td class="contraseña"><?php print $row['Contraseña']; ?></td>
+                        <td class="email"><?php print $row['Email']; ?></td>
+                        <td class="telefono"><?php print $row['Telefono']; ?></td>
+                        <td class="imagen">
+                            <?php
+                                if($row['Imagen']){
+                                ?>
+                                    <img src="Imagenes/<?php print $row['Imagen'] ?>" alt="">
+                                <?php
+                                }
+                                else{
+                                    ?>
+                                    <img src="Imagenes/user.png" alt="">
+                                    <?php
+                                }
+                                ?>
+                        </td>
+                        <td class="rol"><?php print $row['Rol']; ?></td>
+                        <td><i class="ri-edit-2-line" id="editar" onclick="return editarUsuario('<?php print $nombre;?>')"></i></td>
+                        <td><i class="ri-delete-bin-5-line" id="basura" onclick="return eleminarUsuario('<?php print $info; ?>')"></i></td>
                     </tr>
             <?php
                 }
@@ -65,6 +80,28 @@
         </div>
     </div>
 
-
-
 </body>
+
+<script>
+    function editarUsuario(nombre){
+        document.cookie = 'Usuario='+nombre+'; Path=/;';
+        document.cookie = 'Pagina=FormEditUsers.php; Path=/;';
+        window.location.replace("/IndexPrincipal.php");
+    }
+    function eleminarUsuario(nombre){
+        let correcto = true;
+        $info.foreach(function(valor){
+            if(valor == "Admin"){
+                correcto = false;
+            }
+        })
+        if(correcto){
+            document.cookie = 'Usuario='+nombre+'; Path=/;';
+            document.cookie = 'Pagina=administrar.php; Path=/;';
+            window.location.replace("/php/adminEliminaUser.php");
+        }
+        else{
+            alert("No puedes eleminar a un Administrador.")
+        }
+    }
+</script>
