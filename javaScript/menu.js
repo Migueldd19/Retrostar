@@ -18,10 +18,10 @@ function e(){
        
     let pagina = obtenerCookie("Pagina");
     if(pagina != null || pagina != ""){
-        $(".subcontenedor2").load("php/"+pagina);
+        $(".contenedor2").load("php/"+pagina);
     }
     else{
-        $(".subcontenedor2").load("Juegos.php");
+        $(".contenedor2").load("Juegos.php");
     }
     
     $(".nombres").click(function(){
@@ -35,34 +35,34 @@ function e(){
 
     $("#home").click(function(){
         document.cookie = 'Pagina=Juegos.php; Path=/;';
-        $(".subcontenedor2").load("php/Juegos.php");
+        $(".contenedor2").load("php/Juegos.php");
     })
 
     $("#biblioteca").click(function(){
         document.cookie = 'Pagina=Biblioteca.php; Path=/;';
-        $(".subcontenedor2").load("php/Biblioteca.php")
+        $(".contenedor2").load("php/Biblioteca.php")
     })
 
     $("#deseos").click(function(){
         document.cookie = 'Pagina=ListaDeseos.php; Path=/;';
-        $(".subcontenedor2").load("php/ListaDeseos.php")
+        $(".contenedor2").load("php/ListaDeseos.php")
     })
 
     $("#usuarios").click(function(){
         document.cookie = 'Pagina=Usuarios.php; Path=/;';
-        $(".subcontenedor2").load("php/Usuarios.php")
+        $(".contenedor2").load("php/Usuarios.php")
     })
 
     $("#administrar").click(function(){
-        $(".subcontenedor2").load("php/administrar.php")
+        $(".contenedor2").load("php/administrar.php")
     })
     
     $("#btn_sesion1").click(function(){
-        $(".subcontenedor2").load("php/login_registro.php")
+        $(".contenedor2").load("php/login_registro.php")
     })
 
     $("#btn_sesion2").click(function(){
-        $(".subcontenedor2").load("php/cierreSesion.php")
+        $(".contenedor2").load("php/cierreSesion.php")
     })
 
 

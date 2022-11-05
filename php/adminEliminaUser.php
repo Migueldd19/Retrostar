@@ -2,14 +2,28 @@
     require("conectarDB.php");
     
     $user = $_COOKIE['Usuario'];
-    $
-    $users = conectar()->query('SELECT * FROM usuarios');
+    $userValido = false;
+    $users = conectar()->query('SELECT * FROM usuarios Where Nombre="'.$user.'"');
     while ($row = $users->fetch_assoc()){
-        print($row['Nombre']);
+        if($row['Rol'] == 'Admin'){
+            $userValido = false;
+        }
+        else{
+            $userValido = true;
+        }
     }
-/*
-    $sentencia = 'DELETE FROM usuarios WHERE Nombre="'.$user.'"';
-    $consulta2 = mysqli_query($conexion,$sentencia);
-    */
 
+    if($userValido){
+        $conexion = conectar();
+        $sentencia = 'DELETE FROM usuarios WHERE Nombre="'.$user.'"';
+        $sentencia2 = 'DELETE FROM biblioteca WHERE Nombre="'.$user.'"';
+        $sentencia3 = 'DELETE FROM listadeseos WHERE Nombre="'.$user.'"';
+        mysqli_query($conexion,$sentencia);
+        mysqli_query($conexion,$sentencia2);
+        mysqli_query($conexion,$sentencia3);
+        header("location:/IndexPrincipal.php");
+    }
+    else{
+        header("location:/IndexPrincipal.php");
+    }
 ?>

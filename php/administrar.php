@@ -35,24 +35,26 @@
             <table class="tbUsusarios">
             <tr>
                 <th>Nombre</th>
-                <th>ID</th>
-                <th>Contraseña</th>
-                <th>Email</th>
-                <th>Telefono</th>
-                <th>Imagen</th>
-                <th>Rol</th>
+                <th class="ocultar">ID</th>
+                <th class="ocultar">Contraseña</th>
+                <th class="ocultar">Email</th>
+                <th class="ocultar">Telefono</th>
+                <th class="ocultar">Imagen</th>
+                <th class="ocultar">Rol</th>
+                <th>Editar</th>
+                <th>Eleminar</th>
             </tr>
             <?php
                 while ($row = $users->fetch_assoc()){
-                    $info = array($row['Nombre'],$row['Rol'])
+                    $nombre = $row['Nombre'];
             ?>    
                     <tr>
-                        <td class="nombre"><?php print $row['Nombre']; ?></td>
-                        <td class="ID"><?php print $row['IDusuario']; ?></td>
-                        <td class="contraseña"><?php print $row['Contraseña']; ?></td>
-                        <td class="email"><?php print $row['Email']; ?></td>
-                        <td class="telefono"><?php print $row['Telefono']; ?></td>
-                        <td class="imagen">
+                        <td><?php print $row['Nombre']; ?></td>
+                        <td class="ocultar"><?php print $row['IDusuario']; ?></td>
+                        <td class="ocultar"><?php print $row['Contraseña']; ?></td>
+                        <td class="ocultar"><?php print $row['Email']; ?></td>
+                        <td class="ocultar"><?php print $row['Telefono']; ?></td>
+                        <td class="ocultar">
                             <?php
                                 if($row['Imagen']){
                                 ?>
@@ -66,9 +68,9 @@
                                 }
                                 ?>
                         </td>
-                        <td class="rol"><?php print $row['Rol']; ?></td>
+                        <td class="ocultar"><?php print $row['Rol']; ?></td>
                         <td><i class="ri-edit-2-line" id="editar" onclick="return editarUsuario('<?php print $nombre;?>')"></i></td>
-                        <td><i class="ri-delete-bin-5-line" id="basura" onclick="return eleminarUsuario('<?php print $info; ?>')"></i></td>
+                        <td><i class="ri-delete-bin-5-line" id="basura" onclick="return eleminarUsuario('<?php print $nombre;?>')"></i></td>
                     </tr>
             <?php
                 }
@@ -83,25 +85,16 @@
 </body>
 
 <script>
+
     function editarUsuario(nombre){
         document.cookie = 'Usuario='+nombre+'; Path=/;';
         document.cookie = 'Pagina=FormEditUsers.php; Path=/;';
         window.location.replace("/IndexPrincipal.php");
     }
     function eleminarUsuario(nombre){
-        let correcto = true;
-        $info.foreach(function(valor){
-            if(valor == "Admin"){
-                correcto = false;
-            }
-        })
-        if(correcto){
-            document.cookie = 'Usuario='+nombre+'; Path=/;';
-            document.cookie = 'Pagina=administrar.php; Path=/;';
-            window.location.replace("/php/adminEliminaUser.php");
-        }
-        else{
-            alert("No puedes eleminar a un Administrador.")
-        }
+        document.cookie = 'Usuario='+nombre+'; Path=/;';
+        document.cookie = 'Pagina=administrar.php; Path=/;';
+        window.location.replace("/php/adminEliminaUser.php");
     }
+
 </script>

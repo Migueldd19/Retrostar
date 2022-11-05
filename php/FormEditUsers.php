@@ -22,6 +22,7 @@
             <?php
             while ($row = $users->fetch_assoc()) {
             ?>
+            <div class="compresor">
                 <h1><?php print $row['Nombre']?></h1>
                 <?php
                 if($row['Imagen']){
@@ -34,12 +35,15 @@
                     <img src="/Imagenes/user.png" alt="">
                 <?php
                 }
-            }
                 ?>
+            </div>
+            <?php 
+            }
+            ?>
 
         </div>
         <div class="subcontenedor22">
-            <form action="php/EditarUsuario.php" method="POST" enctype="multipart/form-data">
+            <form action="php/adminEditaUsuario.php" method="POST" enctype="multipart/form-data">
                 <label class="campos">Nombre:</label>
                 <input type="text" d="nombreUsuario" name="nombreUsuario">
                 <label class="campos">Contraseña:</label>

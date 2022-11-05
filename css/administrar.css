@@ -35,25 +35,9 @@ th{
 td{
     padding-left: 15px;
 }
-/*.nombre{
-    width: 150px;
-}
-.ID{
-    width: 50px;
-}
-.contraseña{
-    width: 150px; 
-}
-.email{
-    width: 280px;
-}
-.telefono{
-    width: 120px;
-}*/
 img{
     width: 40px;
     height: 40px;
-    
 }
 #editar{
     cursor: pointer;
@@ -62,4 +46,12 @@ img{
     padding-right: 15px;
     cursor: pointer;
 }
-
+@media (max-width: 700px){
+    .ocultar{
+        display: none;
+    }
+    table{
+        width: 90%;
+        margin-left: 15px;
+    }
+}

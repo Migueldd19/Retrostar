@@ -1,21 +1,17 @@
-
 *{
-    margin:0;
-    padding:0;
     box-sizing: border-box;
     font-family: "Poppings";
 }
-body{
-    position:relative;
-    min-height:100vh;
-    width:100%;
-    
-    overflow:hidden;
+html{
+    height: 100%;
 }
-.contenedor{
+.contenedorGlobal{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
     display:flex;
     flex-direction: row;
-    
 }
 .menu{
     position:fixed;
@@ -212,16 +208,18 @@ body{
     left:50%;
    
 }
-.subcontenedor2{
-    position:absolute;
+.contenedor2{
+    position: absolute;
     width: calc(100% - 78px);
     height: 100%;
+    top: 0px;
     left: 78px;
     transition: all 0.5s ease;
     background-color: #1d1b31;
 }
-.menu.active ~ .subcontenedor2{
+.menu.active ~ .contenedor2{
     width: calc(100% - 320px);
+    height: 100%;
     left: 320px;
 }
 
@@ -230,7 +228,7 @@ body{
     body{
         background-color: #1d1b31;
     }
-    .menu.active ~ .subcontenedor2{
+    .menu.active ~ .contenedor2{
         display: none;
     }
     .menu.active{

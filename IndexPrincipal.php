@@ -22,7 +22,7 @@
     <?php
         require("php/conectarDB.php");
     ?>
-    <div class="contenedor">
+    <div class="contenedorGlobal">
             <div class="menu active">
                 <div class="logo_contenido">
                     <div class="logo">
@@ -130,11 +130,10 @@
                                 ?> 
                             </div>
                         </div>
-                        <i class='bx bx-expand-vertical' id="log_out"></i>
                     </div>
                 </div>
             </div>
-        <div class="subcontenedor2">
+        <div class="contenedor2">
             
         </div>
     </div>
