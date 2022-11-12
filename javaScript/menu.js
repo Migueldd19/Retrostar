@@ -17,11 +17,11 @@ function e(){
     })
        
     let pagina = obtenerCookie("Pagina");
-    if(pagina != null || pagina != ""){
-        $(".contenedor2").load("php/"+pagina);
+    if(pagina == null || pagina == "" || pagina == undefined){
+        $(".contenedor2").load("php/Juegos.php");
     }
     else{
-        $(".contenedor2").load("Juegos.php");
+        $(".contenedor2").load("php/"+pagina);
     }
     
     $(".nombres").click(function(){

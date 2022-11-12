@@ -1,1 +1,6 @@
-1- mirar bien el tema de que al principio inicie en la pagina de juegos
+1- pagina admineditausuario mirar como hacer la sentencia update.
+2- a la hora de cerrar sesion hay que crear cookie de pagina con valor juegos php
+3- cambiar valores de BD a Administrador y Usuario
+4- hasear las pass
+5- editar juegos
+6- crear nuevos juegos

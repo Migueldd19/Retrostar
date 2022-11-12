@@ -27,6 +27,7 @@
     require("conectarDB.php");
 
     $users = conectar()->query('SELECT * FROM `usuarios`');
+    $juegos = conectar()->query('SELECT * FROM `juegos`');
     ?>
 
     <div class="contenedorAdmin">
@@ -46,7 +47,7 @@
             </tr>
             <?php
                 while ($row = $users->fetch_assoc()){
-                    $nombre = $row['Nombre'];
+                    $nombreUsuario = $row['Nombre'];
             ?>    
                     <tr>
                         <td><?php print $row['Nombre']; ?></td>
@@ -69,8 +70,8 @@
                                 ?>
                         </td>
                         <td class="ocultar"><?php print $row['Rol']; ?></td>
-                        <td><i class="ri-edit-2-line" id="editar" onclick="return editarUsuario('<?php print $nombre;?>')"></i></td>
-                        <td><i class="ri-delete-bin-5-line" id="basura" onclick="return eleminarUsuario('<?php print $nombre;?>')"></i></td>
+                        <td><i class="ri-edit-2-line" id="editar" onclick="return editarUsuario('<?php print $nombreUsuario;?>')"></i></td>
+                        <td><i class="ri-delete-bin-5-line" id="basura" onclick="return eleminarUsuario('<?php print $nombreUsuario;?>')"></i></td>
                     </tr>
             <?php
                 }
@@ -78,7 +79,47 @@
             </table>
         </div>
         <div class="juegos">
-
+            <h1>Juegos</h1>
+            <table class="tbJuegos">
+            <tr>
+                <th>Nombre</th>
+                <th class="ocultar">ID</th>
+                <th class="ocultar">Descripcion</th>
+                <th class="ocultar">Precio</th>
+                <th class="ocultar">Imagen</th>
+                <th>Editar</th>
+                <th>Eleminar</th>
+            </tr>
+            <?php
+                while ($row = $juegos->fetch_assoc()){
+                    $nombreJuego = $row['Nombre'];
+            ?> 
+                    <tr>
+                        <td><?php print $row['Nombre']; ?></td>
+                        <td class="ocultar"><?php print $row['IDjuego']; ?></td>
+                        <td class="ocultar"><?php print $row['Descripcion']; ?></td>
+                        <td class="ocultar"><?php print $row['Precio']; ?> €</td>
+                        <td class="ocultar">
+                            <?php
+                                if($row['Imagen']){
+                                ?>
+                                    <img src="Imagenes/<?php print $row['Imagen'] ?>" alt="">
+                                <?php
+                                }
+                                else{
+                                    ?>
+                                    <img src="Imagenes/user.png" alt="">
+                                    <?php
+                                }
+                                ?>
+                        </td>
+                        <td><i class="ri-edit-2-line" id="editar" onclick="return editarJuego('<?php print $nombreJuego;?>')"></i></td>
+                        <td><i class="ri-delete-bin-5-line" id="basura" onclick="return eleminarJuego('<?php print $nombreJuego;?>')"></i></td>
+                    </tr>
+            <?php
+                }
+            ?>
+            </table>   
         </div>
     </div>
 
@@ -95,6 +136,16 @@
         document.cookie = 'Usuario='+nombre+'; Path=/;';
         document.cookie = 'Pagina=administrar.php; Path=/;';
         window.location.replace("/php/adminEliminaUser.php");
+    }
+    function editarJuego(nombre){
+        document.cookie = 'Juego='+nombre+'; Path=/;';
+        document.cookie = 'Pagina=FormEditUsers.php; Path=/;';
+        window.location.replace("/IndexPrincipal.php");
+    }
+    function eleminarJuego(nombre){
+        document.cookie = 'Juego='+nombre+'; Path=/;';
+        document.cookie = 'Pagina=administrar.php; Path=/;';
+        window.location.replace("/php/eleminarJuego.php");
     }
 
 </script>

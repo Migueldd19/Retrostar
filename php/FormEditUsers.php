@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- JAVASCRIPT --> 
+    <script src="javaScript/validarAdminEditaUsuario.js"></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="/css/formeditusers.css">
@@ -44,18 +46,27 @@
         </div>
         <div class="subcontenedor22">
             <form action="php/adminEditaUsuario.php" method="POST" enctype="multipart/form-data">
-                <label class="campos">Nombre:</label>
-                <input type="text" d="nombreUsuario" name="nombreUsuario">
-                <label class="campos">Contraseña:</label>
-                <input type="text"  id="contraseñaUsuario" name="ContraseñaUsuario">
-                <label class="campos">Email:</label>
-                <input type="text"  id="emailUsuario"  name="EmailUsuario">
-                <label class="campos">Telefono:</label>
-                <input type="text" id="tlfUsuario"  name="TlfUsuario">
-                <label class="campos">Rol:</label> 
-                <input type="text" id="rolUsuario"  name="rolUsuario">
-                <input type="submit" value="Realizar cambios">
-                <button onclick="regresar()">Cancelar</button>                     
+                <?php
+                $user = conectar()->query('SELECT * FROM usuarios Where Nombre="'.$nombre.'"');
+                while ($row = $user->fetch_assoc()) {
+                ?>
+                    <label class="campos">Nombre:</label>
+                    <input type="text" id="nombreUsuario" name="NombreUsuario" value="<?php print $row['Nombre'];?>">
+                    <label class="campos">Contraseña:</label>
+                    <input type="text"  id="contraseñaUsuario" name="ContraseñaUsuario" value="<?php print $row['Contraseña'];?>">
+                    <label class="campos">Email:</label>
+                    <input type="text"  id="emailUsuario"  name="EmailUsuario" value="<?php print $row['Email'];?>">
+                    <label class="campos">Telefono:</label>
+                    <input type="text" id="tlfUsuario"  name="TlfUsuario" value="<?php print $row['Telefono'];?>">
+                    <label class="campos">Rol:</label> 
+                    <select name="rol">
+                        <option>Usuario</option>
+                        <option>Administrador</option>
+                    <input type="submit" id="enviar" value="Realizar cambios">
+                    <button onclick="regresar()" id="cancelar">Cancelar</button>
+                <?php
+                }
+                ?>                     
             </form>
         </div>
     </div>
