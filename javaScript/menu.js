@@ -62,7 +62,8 @@ function e(){
     })
 
     $("#btn_sesion2").click(function(){
-        $(".contenedor2").load("php/cierreSesion.php")
+        $(".contenedor2").load("php/cierreSesion.php");
+        document.cookie = 'Pagina=Juegos.php; Path=/;';
     })
 
 

@@ -5,7 +5,7 @@ $nombre = trim($_POST['NombreUsuario']);
 $contraseña = trim($_POST['ContraseñaUsuario']);
 $email = trim($_POST['EmailUsuario']);
 $tlf = trim($_POST['TlfUsuario']);
-$rol = $_POST['RolUsuario'];
+$rol = $_POST['rol'];
 
 $valNombre=false;
 $valContraseña=false;
@@ -47,35 +47,26 @@ else{
     $valTelefono=false;
 }
 
-$usuarioValido = true;
+
 
 //Si todo esta correcta hacemos la conexion a la base de datos
 if($valNombre==true && $valContraseña==true && $valEmail==true && $valTelefono==true){
-
+    $usuarioValido = 0;
     //con la conexion comprobamos que ese nombre de usuario no este en uso
     $conexion = conectar();
     $sentencia2 = 'SELECT Nombre FROM `usuarios`';
     $consulta2 = mysqli_query($conexion,$sentencia2);
     while($fila=$consulta2->fetch_assoc()){
-        if($fila['Nombre']==$nombre){
-            $usuarioValido = false;
-            exit();
+        if($fila['Nombre']==$_COOKIE['Usuario']){
+            $usuarioValido++; 
         }
     }
 
     //si el nombre es valido hacemos la sentencia para guardar al usuario en la base de datos
-    if($usuarioValido == true){
+    if($usuarioValido!=0){
         $conexion = conectar();
-        $sentencia2 = 'SELECT FROM `usuarios` where Nombre = "'.$nombre.'"';
-        $consulta2 = mysqli_query($conexion,$sentencia2);
-        $sentencia = 'INSERT INTO usuarios (`Nombre`, `Contraseña`, `Email`, `Telefono`, `Rol`) 
-                VALUES ("'.$nombre.'", "'.$contraseña.'", "'.$email.'", "'.$telefono.'", "'.$rol.'")';
-    
+        $sentencia = 'UPDATE usuarios SET Nombre="'.$nombre.'", Contraseña="'.$contraseña.'", Email="'.$email.'", Telefono="'.$tlf.'", Rol="'.$rol.'" WHERE Nombre="'.$nombre.'"';
         $consulta = mysqli_query($conexion,$sentencia);
-        if($consulta){
-            session_start();
-            $_SESSION['usuario'] = $nombre;
-        }
     }
 }
 header('location:../IndexPrincipal.php');

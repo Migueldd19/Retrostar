@@ -7,6 +7,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="/css/administrar.css">
+    <link rel="stylesheet" href="/css/crearJuego.css">
 
     <!-- Boostrap -->
     
@@ -14,6 +15,7 @@
     <!-- JAVASCRIPT -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"> </script>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="javaScript/nuevoJuego.js"></script>
 
     <!-- ICONOS -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -119,7 +121,36 @@
             <?php
                 }
             ?>
-            </table>   
+                <tr>
+                    <td colspan="7" id="lineaBoton"><button id="botonJuego" onclick="window.modal.showModal();">Crear Juego</button></td>
+                </tr>
+            </table>
+
+            <dialog id="modal">
+                <div id="tituloJuego">
+                    <h1>Crea un nuevo juego!</h1>
+                </div>
+                <div id="subcontenedor">
+                    <form action="php/CrearNuevoJuego.php" method="POST" enctype="multipart/form-data">
+                        <label class="campos">Nombre:
+                        <input type="text" class="text" id="nombreJuego" name="NombreJuego">
+                        </label>
+                        <label class="campos">Descripcion:
+                        <input type="text" class="text" id="descripcionJuego" name="descripcionJuego">
+                        </label>
+                        <label class="campos">Precio:
+                        <input type="number" class="text" id="precioJuego"  name="precioJuego">
+                        </label>
+                        <label class="campos">Imagen:
+                        <input type="file" id="imagenJuego"  name="imagenJuego">
+                        </label>
+                        <input type="submit" value="Crear Juego" id="enviarJuego" onclick="Pagina()">
+                    </form>
+                    <button onclick="window.modal.close();" id="cerrar">Cerrar</button>
+                </div>
+                
+                
+            </dialog>   
         </div>
     </div>
 
@@ -139,7 +170,7 @@
     }
     function editarJuego(nombre){
         document.cookie = 'Juego='+nombre+'; Path=/;';
-        document.cookie = 'Pagina=FormEditUsers.php; Path=/;';
+        document.cookie = 'Pagina=FormularioEditarJuegos.php; Path=/;';
         window.location.replace("/IndexPrincipal.php");
     }
     function eleminarJuego(nombre){

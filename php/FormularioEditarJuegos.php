@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- JAVASCRIPT --> 
-    <script src="javaScript/validarAdminEditaUsuario.js"></script>
+    <script src="javaScript/nuevoJuego.js"></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="/css/formeditusers.css">
@@ -15,9 +15,9 @@
 <body>
     <?php
     require("conectarDB.php");
-    $nombre = $_COOKIE['Usuario'];
+    $nombre = $_COOKIE['Juego'];
 
-    $users = conectar()->query('SELECT * FROM usuarios Where Nombre="'.$nombre.'"');
+    $users = conectar()->query('SELECT * FROM juegos Where Nombre="'.$nombre.'"');
     ?>
     <div class="contenedor">
         <div class="subcontenedor1">
@@ -45,43 +45,37 @@
 
         </div>
         <div class="subcontenedor22">
-            <form action="php/adminEditaUsuario.php" method="POST" enctype="multipart/form-data">
+            <form action="php/adminEditaJuego.php" method="POST" enctype="multipart/form-data">
                 <?php
-                $user = conectar()->query('SELECT * FROM usuarios Where Nombre="'.$nombre.'"');
+                $user = conectar()->query('SELECT * FROM juegos Where Nombre="'.$nombre.'"');
                 while ($row = $user->fetch_assoc()) {
                 ?>
                     <label class="campos">Nombre:</label>
-                    <input type="text" id="nombreUsuario" name="NombreUsuario" value="<?php print $row['Nombre'];?>">
-                    <label class="campos">Contraseña:</label>
-                    <input type="text"  id="contraseñaUsuario" name="ContraseñaUsuario" value="<?php print $row['Contraseña'];?>">
-                    <label class="campos">Email:</label>
-                    <input type="text"  id="emailUsuario"  name="EmailUsuario" value="<?php print $row['Email'];?>">
-                    <label class="campos">Telefono:</label>
-                    <input type="text" id="tlfUsuario"  name="TlfUsuario" value="<?php print $row['Telefono'];?>">
-                    <label class="campos">Rol:</label> 
-                    <select name="rol">
-                        <option value="Usuario">Usuario</option>
-                        <option value="Admin">Administrador</option>
+                    <input type="text" id="nombreUsuario" name="nombreJuego" value="<?php print $row['Nombre'];?>">
+                    <label class="campos">Descripcion:</label>
+                    <input type="text"  id="descripcionJuego" name="descripcionJuego" value="<?php print $row['Descripcion'];?>">
+                    <label class="campos">Precio:</label>
+                    <input type="number"  id="PrecioJuego"  name="precioJuego" value="<?php print $row['Precio'];?>">
+                    <label class="campos">Imagen:</label>
+                    <input type="file" id="imagenJuego"  name="imagenJuego" >
                     <input type="submit" id="enviar" value="Realizar cambios">
-                    <button onclick="regresar()" id="cancelar">Cancelar</button>
                 <?php
                 }
                 ?>                     
             </form>
+            <button onclick="volver()" id="cancelar">Cancelar</button>
         </div>
     </div>
     
 
 </body>
-
 <script>
     $(document).ready(e);
     function e(){
         document.cookie = 'Pagina=administrar.php; Path=/;';
     }
-    function regresar(){
+    function volver(){
         document.cookie = 'Pagina=administrar.php; Path=/;';
         window.location.replace("/IndexPrincipal.php");
     }
 </script>
-</html>

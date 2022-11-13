@@ -1,3 +1,13 @@
+body{
+    background-color:#1D1B31; 
+}
+body::-webkit-scrollbar{
+    width: 7px;
+    background: #1d1b31;
+}
+body::-webkit-scrollbar-thumb{
+    background: #11101d;
+}
 h1{
     color: azure;
     margin-top: 30px;
@@ -46,6 +56,25 @@ img{
     padding-right: 15px;
     cursor: pointer;
 }
+#lineaBoton{
+    text-align: center;
+}
+#botonJuego{
+    cursor: pointer;
+    margin: 7px;
+    text-shadow:
+		0 0 5px rgba(0,178,255,1),
+		0 0 10px rgba(0,178,255,1),
+		0 0 20px rgba(0,178,255,1),
+		0 0 40px rgba(38,104,127,1),
+		0 0 80px rgba(38,104,127,1),
+		0 0 90px rgba(38,104,127,1),
+		0 0 100px rgba(38,104,127,1),
+		0 0 140px rgba(38,104,127,1),
+		0 0 180px rgba(38,104,127,1);
+     
+}
+
 @media (max-width: 700px){
     .ocultar{
         display: none;
