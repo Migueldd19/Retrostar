@@ -49,6 +49,7 @@
     background-color: #1d1b31;
     margin: 30px;
     padding: 20px;
+    height: 57%;
     
 }
 .subcontenedor22 input{
@@ -61,7 +62,18 @@
 #cancelar{
     cursor: pointer;
 }
+.containerButton{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: -75px;
+    
+}
+#volver{
+    cursor: pointer;
+    width: 83%;
 
+}
 @media (max-width: 700px){
     .contenedor{
         

@@ -63,7 +63,9 @@
                 }
                 ?>                     
             </form>
-            <button onclick="volver()" id="cancelar">Cancelar</button>
+            <div class="containerButton">
+                <button onclick="volver()" id="volver">Cancelar</button>
+            </div>
         </div>
     </div>
     
