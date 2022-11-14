@@ -86,8 +86,9 @@ if($valNombre==true && $valContraseña==true && $valContraseña2==true && $valEm
 
     //si el nombre es valido hacemos la sentencia para guardar al usuario en la base de datos
     if($usuarioValido == true){
+        $has_pass = password_hash($contraseña, PASSWORD_DEFAULT);
         $sentencia = 'INSERT INTO usuarios (`Nombre`, `Contraseña`, `Email`, `Telefono`) 
-                VALUES ("'.$nombre.'", "'.$contraseña.'", "'.$email.'", "'.$telefono.'")';
+                VALUES ("'.$nombre.'", "'.$has_pass.'", "'.$email.'", "'.$telefono.'")';
     
         $consulta = mysqli_query($conexion,$sentencia);
         if($consulta){

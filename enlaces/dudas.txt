@@ -1,6 +1,2 @@
-
-
-
-4- hasear las pass
-5- editar juegos
-6- crear nuevos juegos
+1 -> hasear contraseñas en administrar y usuario
+2 -> mirar opcion de editar usuario hacerlo en un formulario con <dialog>

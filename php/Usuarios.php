@@ -39,7 +39,7 @@ session_start();
                         <label class="campos">Nombre: <?php print $row['Nombre'];?> </label>
                     
                         <label class="campos">Contraseña: 
-                        <input type="text"  id="contraseñaUsuario" name="ContraseñaUsuario" value="<?php print $row['Contraseña'];?>">
+                        <input type="password"  id="contraseñaUsuario" name="ContraseñaUsuario">
                         </label>
 
                         <label class="campos">ID de Usuario: <?php print $row['IDusuario'];?></label>

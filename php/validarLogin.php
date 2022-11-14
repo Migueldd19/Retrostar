@@ -54,13 +54,15 @@ if($valNombre==true && $valContraseña==true){
         //si no hay sesion iniciada hacemos la conexion a la base de datos
         //$_COOKIE['Pagina']="login_registro.php";
         $conexion = conectar();
-        $sentencia = 'SELECT Nombre, Contraseña, Imagen, Rol FROM `usuarios`';
+        $sentencia = 'SELECT * FROM usuarios Where Nombre="'.$nombre.'"';
         $consulta = mysqli_query($conexion,$sentencia);
         //comprobamos que el usuario esta en base de datos y coincide con la contraseña
         while($fila=$consulta->fetch_assoc()){
             if($fila['Nombre']==$nombre){
+                $contraseña_DB = $fila['Contraseña'];
                 print("nombre bien");
-                if($fila['Contraseña']==$contraseña){
+                $has_pass = password_verify($contraseña, $contraseña_DB);
+                if($has_pass){
                     print("pass bien");
                     $_SESSION["usuario"] = $nombre;
                     if($fila['Imagen'] != "0"){

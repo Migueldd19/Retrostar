@@ -39,7 +39,6 @@
             <tr>
                 <th>Nombre</th>
                 <th class="ocultar">ID</th>
-                <th class="ocultar">Contraseña</th>
                 <th class="ocultar">Email</th>
                 <th class="ocultar">Telefono</th>
                 <th class="ocultar">Imagen</th>
@@ -54,7 +53,6 @@
                     <tr>
                         <td><?php print $row['Nombre']; ?></td>
                         <td class="ocultar"><?php print $row['IDusuario']; ?></td>
-                        <td class="ocultar"><?php print $row['Contraseña']; ?></td>
                         <td class="ocultar"><?php print $row['Email']; ?></td>
                         <td class="ocultar"><?php print $row['Telefono']; ?></td>
                         <td class="ocultar">
