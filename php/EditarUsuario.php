@@ -23,7 +23,6 @@ $exp_telefono = "/^[9|6]{1}([\d]{2}[-]*){3}[\d]{2}$/";
 if($contraseña != null){
     if(preg_match($exp_contraseña,$contraseña)){
         $valContraseña=true;
-
     }
     else{
         $valContraseña=false;
@@ -48,12 +47,11 @@ if($telefono != null){
     }
 }
 
-
-
 $conexion = conectar();
 
 if($valContraseña==true){
-    $sentencia = 'UPDATE usuarios SET Contraseña="'.$contraseña.'" WHERE Nombre="'.$usuario.'"';
+    $has_pass = password_hash($contraseña, PASSWORD_DEFAULT);
+    $sentencia = 'UPDATE usuarios SET Contraseña="'.$has_pass.'" WHERE Nombre="'.$usuario.'"';
     $consulta2 = mysqli_query($conexion,$sentencia);
 }
 

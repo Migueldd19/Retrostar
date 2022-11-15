@@ -128,13 +128,15 @@ input{
 }
 .precio{
     width: 4%;
+    margin-top: 20px;
+    margin-left: 5px;
 }
 .iconos{
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
     justify-content:flex-end;
-    padding-bottom: 4px;
+    margin-top: 20px;
     width: 90%;
     padding: 3px;
 }

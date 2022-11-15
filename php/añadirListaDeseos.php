@@ -11,9 +11,7 @@ $result = conectar()->query('SELECT * FROM listadeseos WHERE Usuario = "'.$nombr
 while ($row = $result->fetch_assoc()) {
 
     if($row['Juego']== $juego) {
-
         $valido = false;
-
     }
 }
 
@@ -22,7 +20,6 @@ if($valido == true){
     $sentencia = 'INSERT INTO listadeseos (Usuario, Juego) VALUES ("'.$nombre.'", "'.$juego.'")';
     $consulta = mysqli_query($conexion,$sentencia);
     if($consulta){
-
         header("Location:../IndexPrincipal.php");
     }            
 }
@@ -33,10 +30,3 @@ else{
 unset($_COOKIE['NombreJuego']);
 
 ?>
-<script>
-    onload(e);
-    function e (){
-        document.cookie = "Pagina = Juegos.php";
-    }
-    
-</script>

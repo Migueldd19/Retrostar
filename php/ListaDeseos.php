@@ -86,6 +86,7 @@
 <script>                  
         
     function eleminarJuego(e) {
+        alert("Juego elemindo correctamente.");
         document.cookie = "NombreJuego = "+e;
         document.cookie = "Pagina = ListaDeseos.php";
         window.location.replace("php/eleminarListaDeseos.php");                             
