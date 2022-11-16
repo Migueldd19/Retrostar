@@ -1,5 +1,6 @@
 <?php
 require("conectarDB.php");
+
 $nombreJuego = $_COOKIE['Juego'];
 
 $nombre = $_POST['nombreJuego'];
@@ -23,16 +24,19 @@ if(is_numeric($precio)){
 $conexion = conectar();
 
 if($valNombre){
+    print("Nombre ok");
     $sentencia = 'UPDATE juegos SET Nombre="'.$nombre.'" WHERE Nombre="'.$nombreJuego.'"';
     $consulta2 = mysqli_query($conexion,$sentencia);
 }
 
 if($valDescripcion){
+    print("Desc ok");
     $sentencia = 'UPDATE juegos SET Descripcion="'.$descripcion.'" WHERE Nombre="'.$nombreJuego.'"';
     $consulta2 = mysqli_query($conexion,$sentencia);
 }
 
 if($valPrecio){
+    print("precio ok");
     $sentencia = 'UPDATE juegos SET Precio="'.$precio.'" WHERE Nombre="'.$nombreJuego.'"';
     $consulta2 = mysqli_query($conexion,$sentencia);
 }

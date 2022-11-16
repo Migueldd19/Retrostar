@@ -27,11 +27,8 @@
         require("conectarDB.php");
 
         session_start();
-        $nombre = null;
-        if(isset($_SESSION["usuario"])){
-            $nombre = $_SESSION["usuario"];
-        }
-        
+        $nombre = $_SESSION["usuario"];
+            
     ?>
     <div class="busqueda">
         <p class="titulo">Lista de Deseos</p>
@@ -45,13 +42,17 @@
     <?php
         $result = conectar()->query('SELECT * FROM juegos INNER JOIN listadeseos ON juegos.Nombre = listadeseos.Juego WHERE listadeseos.Usuario = "'.$nombre.'"');
         while ($row = $result->fetch_assoc()){
+            $compraValida = true;
                 ?>
                 <div class="col-lg-3" id="caja">
                     <div class="imagen">
                         <img src="Imagenes/<?php print $row['Imagen'] ?>" alt="">
                     </div>
                     <div class="nombre">
-                        <?php print $row['Nombre'];?>
+                        <?php
+                            $nombreJuego = $row['Nombre'];
+                            print $row['Nombre'];
+                        ?>
                     </div>
                     <div class="subcontenedor">
                         <div class="descripcion">
@@ -71,8 +72,21 @@
                             <div class="deseos" >
                                 <i class='bx bx-trash-alt' onclick="return eleminarJuego('<?php print $row['Nombre'];?>');"></i>
                             </div>
-                            
-                            <div class="carrito"><i class="bx bxs-cart" onclick="comprar()"></i></div>
+                            <?php
+                                $result2 = conectar()->query('SELECT * FROM biblioteca');
+                                while ($row = $result2->fetch_assoc()){
+                                    if($nombreJuego == $row['Juego'] && $row['Usuario'] == $nombre){
+                                        $compraValida = false;
+                                    }
+                                }
+                                if ($compraValida){
+                                ?>
+                                    <div class="carrito">
+                                        <i class="bx bxs-cart" onclick="comprar2('<?php print $nombreJuego; ?>')"></i>
+                                    </div>
+                                <?php
+                                }
+                            ?>
                         </div>   
                     </div>
                 </div>
@@ -91,5 +105,10 @@
         document.cookie = "Pagina = ListaDeseos.php";
         window.location.replace("php/eleminarListaDeseos.php");                             
     }
+
+    function comprar2(e){
+            document.cookie = "NombreJuego = "+e;
+            window.location.replace("php/compra.php");
+        }
                                          
 </script>

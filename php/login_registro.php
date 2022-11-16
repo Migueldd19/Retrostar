@@ -51,6 +51,7 @@
                             <input type="text" name="Nombre_registro" id="Nombre_registro"  autocomplete="off" class="campos">
                             <label for="Contraseña">Contraseña</label>
                             <input type="password" name="Contraseña_registro" id="Contraseña_registro" autocomplete="off" class="campos">
+                            <div id="errorPass"></div>
                             <label for="Contraseña2">Repita Contraseña</label>
                             <input type="password" name="Contraseña2_registro" id="Contraseña2_registro" autocomplete="off" class="campos">
                             <label for="Email">Email</label>

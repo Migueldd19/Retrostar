@@ -50,5 +50,4 @@ function validarContraseña(x){
         document.getElementById("Contraseña_login").style.borderBottom = "1px solid red";
         contraseñaLogin = false;
     }
-    
 }

@@ -51,6 +51,7 @@ if($valNombre==true && $valContraseña==true){
         header("Location:../IndexPrincipal.php");
     }
     else{
+        
         //si no hay sesion iniciada hacemos la conexion a la base de datos
         //$_COOKIE['Pagina']="login_registro.php";
         $conexion = conectar();
@@ -58,6 +59,12 @@ if($valNombre==true && $valContraseña==true){
         $consulta = mysqli_query($conexion,$sentencia);
         //comprobamos que el usuario esta en base de datos y coincide con la contraseña
         while($fila=$consulta->fetch_assoc()){
+            ?>
+            <script>
+                    
+                    alert("llega");
+            </script>
+            <?php
             if($fila['Nombre']==$nombre){
                 $contraseña_DB = $fila['Contraseña'];
                 print("nombre bien");
@@ -76,7 +83,7 @@ if($valNombre==true && $valContraseña==true){
                 else{
                     ?>
                     <script>
-                        document.cookie = "Pagina = login_registro.php"; 
+                        document.cookie = "Pagina = login_registro.php";'Path=/'; 
                     </script>
                     <?php
                     header("Location:/IndexPrincipal.php");
@@ -85,18 +92,25 @@ if($valNombre==true && $valContraseña==true){
             else{
                 ?>
                 <script>
-                    document.cookie = "Pagina = login_registro.php";
+                    document.cookie = "Pagina = login_registro.php";'Path=/';
                 </script>
                 <?php
-                header("Location:/IndexPrincipal.php");
+                header("Location:../IndexPrincipal.php");
             }
         }
+        ?>
+        <script>
+            document.cookie = "Pagina = login_registro.php";'Path=/';
+        </script>
+        <?php
+        header("Location:../IndexPrincipal.php");
     }
 }else{
     ?>
     <script>
-        document.cookie = "Pagina = login_registro.php";
+        document.cookie = "Pagina = login_registro.php";'Path=/';
     </script>
     <?php
+    header("Location:../IndexPrincipal.php");
 }
 ?>

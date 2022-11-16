@@ -1,11 +1,13 @@
 <?php
 require("conectarDB.php");
 
+$usuario = $_COOKIE['Usuario'];
 $nombre = trim($_POST['NombreUsuario']);
 $contraseña = trim($_POST['ContraseñaUsuario']);
 $email = trim($_POST['EmailUsuario']);
-$tlf = trim($_POST['TlfUsuario']);
+$telefono = trim($_POST['TlfUsuario']);
 $rol = $_POST['rol'];
+
 
 $valNombre=false;
 $valContraseña=false;
@@ -19,56 +21,69 @@ $exp_email = "/^[\w]+@{1}[\w]+\.+[a-z]{2,3}$/";
 $exp_telefono = "/^[9|6]{1}([\d]{2}[-]*){3}[\d]{2}$/";
 
 //hacemos las comprobaciones para saber si los campos cumplen las condiciones
-if(preg_match($exp_nombre,$nombre)){
-    $valNombre=true;
-}
-else{
-    $valNombre=false;
-}
-
-if(preg_match($exp_contraseña,$contraseña)){
-    $valContraseña=true;
-}
-else{
-    $valContraseña=false;
-}
-
-if(preg_match($exp_email,$email)){
-    $valEmail=true;
-}
-else{
-    $valEmail=false;
-}
-
-if(preg_match($exp_telefono,$tlf)){
-    $valTelefono=true;
-}
-else{
-    $valTelefono=false;
-}
-
-
-
-//Si todo esta correcta hacemos la conexion a la base de datos
-if($valNombre==true && $valContraseña==true && $valEmail==true && $valTelefono==true){
-    $usuarioValido = 0;
-    //con la conexion comprobamos que ese nombre de usuario no este en uso
-    $conexion = conectar();
-    $sentencia2 = 'SELECT Nombre FROM `usuarios`';
-    $consulta2 = mysqli_query($conexion,$sentencia2);
-    while($fila=$consulta2->fetch_assoc()){
-        if($fila['Nombre']==$_COOKIE['Usuario']){
-            $usuarioValido++; 
-        }
+if($nombre != null){
+    if(preg_match($exp_nombre,$nombre)){
+        $valNombre=true;
     }
-
-    //si el nombre es valido hacemos la sentencia para guardar al usuario en la base de datos
-    if($usuarioValido!=0){
-        $conexion = conectar();
-        $sentencia = 'UPDATE usuarios SET Nombre="'.$nombre.'", Contraseña="'.$contraseña.'", Email="'.$email.'", Telefono="'.$tlf.'", Rol="'.$rol.'" WHERE Nombre="'.$nombre.'"';
-        $consulta = mysqli_query($conexion,$sentencia);
+    else{
+        $valNombre=false;
     }
 }
+
+if($contraseña != null){
+    if(preg_match($exp_contraseña,$contraseña)){
+        $valContraseña=true;
+    }
+    else{
+        $valContraseña=false;
+    }
+}
+
+if($email != null){
+    if(preg_match($exp_email,$email)){
+        $valEmail=true;
+    }
+    else{
+        $valEmail=false;
+    }
+}
+
+if($telefono != null){
+    if(preg_match($exp_telefono,$telefono)){
+        $valTelefono=true;
+    }
+    else{
+        $valTelefono=false;
+    }
+}
+
+
+$conexion = conectar();
+
+    $sentenciarol = 'UPDATE usuarios SET Rol="'.$rol.'" WHERE Nombre="'.$usuario.'"';
+    $consulta2 = mysqli_query($conexion,$sentenciarol);
+
+if($valContraseña==true){
+    $has_pass = password_hash($contraseña, PASSWORD_DEFAULT);
+    $sentencia = 'UPDATE usuarios SET Contraseña="'.$has_pass.'" WHERE Nombre="'.$usuario.'"';
+    $consulta2 = mysqli_query($conexion,$sentencia);
+}
+
+if($valEmail==true){
+    $sentencia = 'UPDATE usuarios SET Email="'.$email.'" WHERE Nombre="'.$usuario.'"';
+    $consulta2 = mysqli_query($conexion,$sentencia);
+}
+
+if($valTelefono==true){
+    $sentencia = 'UPDATE usuarios SET Telefono="'.$telefono.'" WHERE Nombre="'.$usuario.'"';
+    $consulta2 = mysqli_query($conexion,$sentencia);
+}
+
+if($valNombre==true){
+    $sentencia = 'UPDATE usuarios SET Nombre="'.$nombre.'" WHERE Nombre="'.$usuario.'"';
+    $consulta2 = mysqli_query($conexion,$sentencia);
+}
+
 header('location:../IndexPrincipal.php');
 
 ?>

@@ -57,6 +57,7 @@ function validarContraseñaRegistro(x){
     }
     else{
         document.getElementById("Contraseña_registro").style.borderBottom = "1px solid red";
+        alert("la contraseña debe contener 8 caracteres, 1 mayuscula, 1 minuscula y 1 numero como minimo.")
         contraseñaRegistro = false;
     }
     

@@ -54,6 +54,7 @@ function e(){
     })
 
     $("#administrar").click(function(){
+        document.cookie = 'Pagina=administrar.php; Path=/;';
         $(".contenedor2").load("php/administrar.php")
     })
     

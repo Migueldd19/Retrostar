@@ -29,8 +29,10 @@
 <?php 
 
 require("conectarDB.php");
-
-$result = conectar()->query('SELECT * FROM juegos');
+session_start();
+if(isset($_SESSION["usuario"])){
+    $usuario = $_SESSION["usuario"];
+}
 
 ?>  
 
@@ -44,77 +46,80 @@ $result = conectar()->query('SELECT * FROM juegos');
     <div class="contenedor">
     <?php
  
-    session_start();  
-    if(isset($_SESSION["usuario"])){
-        while ($row = $result->fetch_assoc()) {
-            ?>
-                <div class="col-lg-3" id="caja">
-                    <div class="imagen">
-                        <img src="Imagenes/<?php print $row['Imagen'] ?>" alt="">
+    $result = conectar()->query('SELECT * FROM juegos');
+   
+        
+    while ($row = $result->fetch_assoc()) {
+        $compraValida = true;
+        $listaValida = true;
+    ?>
+        <div class="col-lg-3" id="caja">
+            <div class="imagen">
+                <img src="Imagenes/<?php print $row['Imagen'] ?>" alt="">
+            </div>
+            <div class="nombre">
+    <?php 
+                $nombreJuego = $row['Nombre'];
+                print $row['Nombre'];
+    ?>
+            </div>
+                <div class="subcontenedor">
+                    <div class="descripcion">
+                        <?php print $row['Descripcion'] ?>
                     </div>
-                    <div class="nombre">
-                        <?php print $row['Nombre'];?>
+                    <div class="precio">
+    <?php
+                        if($row['Precio']!="0") {
+                            print $row['Precio'].'€';
+                        }
+                        else{
+                            print 'Gratis';
+                        }
+    ?>
                     </div>
-                    <div class="subcontenedor">
-                        <div class="descripcion">
-                            <?php print $row['Descripcion'] ?>
-                        </div>
-                        <div class="precio">
-                            <?php
-                            if($row['Precio']!="0") {
-                                print $row['Precio'].'€';
+                    <div class="iconos">
+    <?php
+                        if(isset($_SESSION["usuario"])){
+                            $result3 = conectar()->query('SELECT * FROM listadeseos');
+                            while ($row = $result3->fetch_assoc()){
+                                if($nombreJuego == $row['Juego'] && $row['Usuario'] == $usuario){
+                                    $listaValida = false;
+                                }
                             }
-                            else{
-                                print 'Gratis';
+                            if ($listaValida){
+    ?>
+                                <div class="deseos" >
+                                    <i class='bx bx-plus-circle' onclick="return listaDeseos('<?php print $nombreJuego;?>');"></i>
+                                </div>
+    <?php
                             }
-                            ?>
-                        </div>
-                        <div class="iconos">
-                            <div class="deseos" >
-                                <i class='bx bx-plus-circle' onclick="return listaDeseos('<?php print $row['Nombre'];?>');"></i>
-                            </div>
-                            
-                            <div class="carrito"><i class="bx bxs-cart" onclick="return comprar('<?php print $row['Nombre'];?>');"></i></div>
-                        </div>   
-                    </div>
-                </div>   
-            <?php
-            }
+                                
+                            $result2 = conectar()->query('SELECT * FROM biblioteca');
+                            while ($row = $result2->fetch_assoc()){
+                                if($nombreJuego == $row['Juego'] && $row['Usuario'] == $usuario){
+                                    $compraValida = false;
+                                }
+                            }
+                            if ($compraValida){
+    ?>
+                                <div class="carrito">
+                                    <i class="bx bxs-cart" onclick="return comprar('<?php print $nombreJuego; ?>');"></i>
+                                </div>
+    <?php
+                            }
+                              
+                        }
+    ?> 
+                    </div>   
+            </div>
+        </div>   
+    <?php
     }
-    else{
-        while ($row = $result->fetch_assoc()) {
-            ?>
-                <div class="col-lg-3" id="caja">
-                    <div class="imagen">
-                        <img src="Imagenes/<?php print $row['Imagen'] ?>" alt="">
-                    </div>
-                    <div class="nombre">
-                        <?php print $row['Nombre'];?>
-                    </div>
-                    <div class="subcontenedor">
-                        <div class="descripcion">
-                            <?php print $row['Descripcion'] ?>
-                        </div>
-                        <div class="precio">
-                            <?php
-                            if($row['Precio']!="0") {
-                                print $row['Precio'].'€';
-                            }
-                            else{
-                                print 'Gratis';
-                            }
-                            ?>
-                        </div>   
-                    </div>
-                </div>
-            <?php
-        }
-    }
+    
     ?>
     </div> 
 
 </body>
-
     <script> 
 
         function recoger() {
@@ -129,31 +134,24 @@ $result = conectar()->query('SELECT * FROM juegos');
                     
                     if(texto.includes(busqueda)){
                         $(".col-lg-3").eq(i).show(); 
-                        
                     }
                     else{
                         $(".col-lg-3").eq(i).hide();
-                        
                     } 
                 }
             }
-            
         }
     
         function comprar(e){
-            
             document.cookie = "NombreJuego = "+e;
             window.location.replace("php/compra.php");
-            
         }
-            
-        
+
         function listaDeseos(e) {
             alert("Juego añadido a tu lista de deseos");
             document.cookie = "NombreJuego = "+e;
             window.location.replace("php/añadirListaDeseos.php");                            
-        }
-                                         
-    </script>
+        } 
 
+    </script>
 </html>

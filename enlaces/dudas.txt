@@ -1,3 +1,1 @@
-1 -> hasear contraseñas en administrar
-2 -> mirar opcion de editar usuario hacerlo en un formulario con <dialog>
-3 -> que no pueda comprar el mismo juego.
+cambiar fondo de login en responsive

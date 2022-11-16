@@ -68,7 +68,7 @@ else{
     $valTelefono=false;
 }
 
-$usuarioValido = true;
+$usuarioValido = 0;
 
 //Si todo esta correcta hacemos la conexion a la base de datos
 if($valNombre==true && $valContraseña==true && $valContraseña2==true && $valEmail==true && $valTelefono==true){
@@ -79,13 +79,12 @@ if($valNombre==true && $valContraseña==true && $valContraseña2==true && $valEm
     $consulta2 = mysqli_query($conexion,$sentencia2);
     while($fila=$consulta2->fetch_assoc()){
         if($fila['Nombre']==$nombre){
-            $usuarioValido = false;
-            exit();
+            $usuarioValido++;
         }
     }
 
     //si el nombre es valido hacemos la sentencia para guardar al usuario en la base de datos
-    if($usuarioValido == true){
+    if($usuarioValido == 0){
         $has_pass = password_hash($contraseña, PASSWORD_DEFAULT);
         $sentencia = 'INSERT INTO usuarios (`Nombre`, `Contraseña`, `Email`, `Telefono`) 
                 VALUES ("'.$nombre.'", "'.$has_pass.'", "'.$email.'", "'.$telefono.'")';
@@ -95,6 +94,9 @@ if($valNombre==true && $valContraseña==true && $valContraseña2==true && $valEm
             session_start();
             $_SESSION['usuario'] = $nombre;
         }
+    }
+    else{
+        header('location:../IndexPrincipal.php');
     }
 }
 header('location:../IndexPrincipal.php');
