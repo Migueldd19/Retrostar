@@ -20,12 +20,10 @@
 </head>
 <body>
     <div class="fondo">
-        <img src="Imagenes/fondo1.jpg" alt="">
         <div class="page">
             <div class="container1">
                 <div class="left">
                     <div class="login">REGISTRO</div>
-                    <div class="eula"></div>
                 </div>
                 <div class="right">
                     <div class="form">

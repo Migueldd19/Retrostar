@@ -74,9 +74,7 @@ function e(){
         let listaCookies = document.cookie.split(';');
         for (i in listaCookies) {
             let busca = listaCookies[i].search("Pagina");
-            
             if (busca == 1) {
-                
                 let prueba = listaCookies[i].split("=");
                 let resultado = prueba["1"];
                 return resultado;
