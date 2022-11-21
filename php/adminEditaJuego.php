@@ -14,7 +14,7 @@ $valPrecio=false;
 if($nombre != ''){
     $valNombre=true;
 }
-if($descripcion != '' || $descripcion != null){
+if($descripcion != ''){
     $valDescripcion=true;
 }
 if(is_numeric($precio)){

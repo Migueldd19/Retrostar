@@ -38,7 +38,7 @@ session_start();
                     <form action="php/EditarUsuario.php" method="POST" enctype="multipart/form-data">
                         <label class="campos">Nombre: <?php print $row['Nombre'];?> </label>
                     
-                        <label class="campos">Contraseña: 
+                        <label class="campos" id="labelContraseñaUsuario">Contraseña: 
                         <input type="password"  id="contraseñaUsuario" name="ContraseñaUsuario">
                         </label>
 
@@ -71,13 +71,13 @@ session_start();
                             <input type="file" class="imagen_formulario"  name="ImagenUsuario">
                         </label>
 
-                        <input type="submit" class="campo_enviar" onclick="cargarPagina()" value="Realizar Cambios" id="enviar">
+                        <input type="submit" class="campo_enviar" onclick="cargarPagina()" value="Realizar Cambios" id="btnEnviar">
                         
                     </form>
 
                     <div class="btn_eleminar">
-                        <a href="php/eleminarUsuario.php" class="eleminar" onclick="cargarPagina2()">
-                            <button class="eleminar">Eleminar Usuario</button>
+                        <a href="php/eleminarUsuario.php" onclick="eleminarUsuario2()">
+                            <button id="btnEleminar">Eleminar Usuario</button>
                         </a>
                     </div>
                     
@@ -91,7 +91,7 @@ session_start();
     function cargarPagina() {
             document.cookie = "Pagina = Usuarios.php";                             
         }
-    function cargarPagina2() {
+    function eleminarUsuario2() {
         document.cookie = "Pagina = Juegos.php";                             
     }
 </script>

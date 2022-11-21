@@ -19,7 +19,7 @@
     <!-- ICONOS -->
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
-    <title>Lista de Deseos</title>
+    <title>Mis Juegos</title>
     
 </head>
 <body>

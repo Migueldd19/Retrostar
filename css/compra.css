@@ -34,15 +34,16 @@ body{
 .texto{
     width: 80%;
     padding-left: 20px;
+    font-size: 30px;
 } 
 .usuario{
     width: 20%;
     padding-left: 10px;
-    font-size: 21px;
+    font-size: 30px;
 }
 .usuario img{
-    width: 20px;
-    height: 20px;
+    width: 50px;
+    height: 50px;
     border-radius: 5px;
     margin-top: 3px;
     margin-right: 3px;
@@ -69,8 +70,7 @@ body{
     color: white;
     padding: 15px;
     padding-bottom: 5px;
-    border-radius: 20px;
-    box-shadow: rgba(24, 131, 137, 0.914) 0px 20px 7px -15px;
+    border-bottom: 2px solid rgba(24, 131, 137, 0.914);
 }
 .imagen{
     padding: 18px;
@@ -112,10 +112,10 @@ body{
     width: 20%;
     padding-top: 5px; 
 }
-.cierre img{
-    width: 20px;
-    height: 20px;
+.cierre h2{
     cursor: pointer;
+    color: #e50b0b; 
+    text-shadow: 0 0 5px #e97272, 0 0 10px #e97272, 0 0 17px #a33434, 0 0 38px #e50b0b
 }
 .contenido{
     width: 100%;
@@ -172,20 +172,36 @@ body{
 }
 
 .pedido{
+    display: flex;
+    justify-content: center;
     width: 100%;
     height: 16vh;
     box-shadow: inset 0px 8px 6px -6px rgb(24, 131, 137);
     align-items: center;
 }
 .boton{
-    margin-top: 50px;
-    width: 60%;
-    height: 30px;
-    border-radius: 20px;
-    border: 0px;
-    margin-left: 20%;
+    background-color: #0be5d373;
+    border: 0;
+    color: #f2f2f2;
+    font-size: 20px;
+    height: 40px;
+    line-height: 30px;
+    outline: none !important;
+    width: 80%;
     cursor: pointer;
-    box-shadow: rgba(24, 131, 137) 0px -23px 25px 0px inset, rgba(24, 131, 137) 0px -36px 30px 0px inset, rgba(24, 131, 137, 0.635) 0px -79px 40px 0px inset, rgba(24, 131, 137, 0.521) 0px 2px 1px, rgba(24, 131, 137, 0.416) 0px 4px 2px, rgba(24, 131, 137, 0.31) 0px 8px 4px, rgba(24, 131, 137, 0.186) 0px 16px 8px;
+    border-radius: 5px;
+    box-shadow: 
+    0 0 0.1vw 0.4vw #fff7f7,
+    0 0 0.4vw 0.6vw #72e9df,
+    0 0 4vw 0.4vw #0be5d3,
+    inset 0 0 1.5vw 0.4vw #0be5d3,
+    inset 0 0 0.4vw 0.2vw #72e9df,
+    inset 0 0 0.5vw 0.4vw #fff7f7;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.boton:hover{
+    background-color: #0be5d3cf;
 }
 #modal1{
     width: 50%;
@@ -205,23 +221,57 @@ body{
     margin: 15px;
     text-align: justify;
 }
+#contenedorBotones{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    vertical-align: middle;
+}
 .cerrarmodal{
-    width: 80px;
-    height: 45px;
-    position: relative;
-    left: 70%;
-    top: 30%;
-    background-color: brown;
+    background-color: #e50b0b68;
+    border: 0;
+    color: #f2f2f2;
+    font-size: 20px;
+    height: 40px;
+    line-height: 30px;
+    outline: none !important;
+    width: 300px;
     cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 
+    0 0 0.1vw 0.3vw #fff7f7,
+    0 0 0.4vw 0.3vw #e97272,
+    0 0 0.5vw 0.3vw #e50b0b,
+    inset 0 0 0.5vw 0.0vw #e50b0b,
+    inset 0 0 0.4vw 0.1vw #e97272,
+    inset 0 0 0.1vw 0.1vw #fff7f7;
+    margin: 40px;
+}
+.cerrarmodal:hover{
+    background-color: #e50b0b;
 }
 .confirmarmodal{
-    width: 80px;
-    height: 45px;
-    position: relative;
-    left: 75%;
-    top: 30%;
-    background-color: aqua;
+    background-color: #4ce50b6f;
+    border: 0;
+    color: #f2f2f2;
+    font-size: 20px;
+    height: 40px;
+    line-height: 30px;
+    outline: none !important;
+    width: 300px;
     cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 
+    0 0 0.1vw 0.3vw #fff7f7a3,
+    0 0 0.4vw 0.3vw #53e364,
+    0 0 0.5vw 0.3vw #4ce50b,
+    inset 0 0 0.5vw 0.0vw #4ce50b,
+    inset 0 0 0.4vw 0.1vw #53e364,
+    inset 0 0 0.1vw 0.1vw #fff7f7a3;
+    margin: 40px;
+}
+.confirmarmodal:hover{
+    background-color: #4ce50b;
 }
 @media (max-width: 700px) {
 
@@ -240,20 +290,26 @@ body{
     }
     #modal1{
         width: 70%;
-        height: 75%;
-        top: 115%;
+        height: 60%;
+        top: 100%;
         left: 15%;
     }
+    #contenedorBotones{
+        justify-content: center;
+    }
     .cerrarmodal{
-        width: 220px;
+        width: 100px;
         left: 10%;
         top: 3%;
+        margin: 0px;
+        margin-right: 10px;
     }
     .confirmarmodal{
-        width: 220px;
+        width: 100px;
         left: 10%;
         top: 8%;
-
+        margin: 0px;
+        margin-left: 10px;
     }
 }
 

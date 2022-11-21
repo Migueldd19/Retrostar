@@ -90,7 +90,7 @@
                     <h3>Resumen de compra</h3>
                 </div>
                 <div class="cierre">
-                    <img src="/Imagenes/x.png" onclick="cancelar()" alt="">
+                    <h2 onclick="cancelar()">X</h2>
                 </div>   
             </div>
             <div class="contenido">
@@ -137,8 +137,11 @@
     <dialog id="modal1">
         <h2>INFORMACIÓN SOBRE EL REEMBOLSO Y EL DERECHO DE DESISTIMIENTO</h2>
         <p>Cualquier juego comprado en la tienda de Epic Games puede ser objeto de reembolso dentro de los 14 días siguientes a la compra (o en el caso de pre-compras, dentro de los 14 días siguientes al lanzamiento) y siempre que usted haya jugado al juego por menos de 2 horas.</p>
-        <button class="cerrarmodal" onclick="window.modal1.close();">Cerrar</button>
-        <button class="confirmarmodal" onclick="redirecion()">Confirmar</button>
+        <div id="contenedorBotones">
+            <button class="cerrarmodal" onclick="window.modal1.close();">Cerrar</button>
+            <button class="confirmarmodal" onclick="redirecion()">Confirmar</button>
+        </div>
+        
     </dialog>
 
 </body>

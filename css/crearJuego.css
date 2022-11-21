@@ -1,8 +1,13 @@
+dialog{
+    margin: 0;
+}
 .modal{
+    position: absolute;
     background-color: #1d1b31; 
     width: 500px;
     height: 600px;
-    left: 300px;
+    left: 25%;
+    top: 25%;
 }
 .modal::-webkit-scrollbar{
     width: 7px;
@@ -97,44 +102,102 @@ input:focus{
     background: none;
     outline: none;
 }
-.enviarJuego {
-    margin-top: 15px;
-    margin-bottom: 15px;
-    background: transparent;
+#enviar{
+    background-color: #4ce50b6f;
     border: 0;
-    border-radius: 5px;
-    box-shadow: rgba(75, 219, 18, 0.17) 0px -23px 25px 0px inset, rgba(75, 219, 18, 0.17) 0px -36px 30px 0px inset, rgba(75, 219, 18, 0.17) 0px -79px 40px 0px inset, rgba(75, 219, 18, 0.17) 0px 2px 1px, rgba(75, 219, 18, 0.17) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
     color: #f2f2f2;
-    font-size: 13px;
-    height: 30px;
+    font-size: 20px;
+    height: 40px;
     line-height: 30px;
     outline: none !important;
     width: 100%;
     cursor: pointer;
-}
-.enviarJuego:hover{
-    box-shadow: rgba(75, 219, 18, 0.504) 0px -23px 25px 0px inset, rgba(75, 219, 18, 0.499) 0px -36px 30px 0px inset, rgba(75, 219, 18, 0.527) 0px -79px 40px 0px inset,rgba(75, 219, 18, 0.513) 0px 2px 1px, rgba(75, 219, 18, 0.518) 0px 4px 2px, rgba(0, 0, 0, 0.508) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.47) 0px 32px 16px;
-}
-.campo_enviar::-moz-focus-inner { 
-    border: 0; 
-}
-.cerrar{
-    width: 90%;
-    margin-top: 7px;
-    background: transparent;
-    border: 0;
     border-radius: 5px;
-    box-shadow: rgba(219, 18, 18, 0.17) 0px -23px 25px 0px inset, rgba(219, 18, 18, 0.17) 0px -36px 30px 0px inset, rgba(219, 18, 18, 0.17) 0px -79px 40px 0px inset, rgba(219, 18, 18, 0.17) 0px 2px 1px, rgba(219, 18, 18, 0.17) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-    font-size: 13px;
-    height: 30px;
-    line-height: 30px;
-    cursor: pointer;
-    outline: none !important;
+    box-shadow: 
+    0 0 0.1vw 0.3vw #fff7f7a3,
+    0 0 0.4vw 0.3vw #53e364,
+    0 0 0.5vw 0.3vw #4ce50b,
+    inset 0 0 0.5vw 0.0vw #4ce50b,
+    inset 0 0 0.4vw 0.1vw #53e364,
+    inset 0 0 0.1vw 0.1vw #fff7f7a3;
+    margin-top: 30px;
 }
-.cerrar:hover{
-    box-shadow:rgba(219, 18, 18, 0.463) 0px -23px 25px 0px inset, rgba(219, 18, 18, 0.539) 0px -36px 30px 0px inset, rgba(219, 18, 18, 0.534) 0px -79px 40px 0px inset, rgba(219, 18, 18, 0.52) 0px 2px 1px, rgba(219, 18, 18, 0.51) 0px 4px 2px, rgba(0, 0, 0, 0.51) 0px 8px 4px, rgba(0, 0, 0, 0.491) 0px 16px 8px, rgba(0, 0, 0, 0.496) 0px 32px 16px;
+#enviar:hover{
+    background-color: #4ce50b;
 }
 #cerrar{
+    background-color: #e50b0b68;
+    border: 0;
+    color: #f2f2f2;
+    font-size: 20px;
+    height: 40px;
+    line-height: 30px;
+    outline: none !important;
     width: 100%;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 
+    0 0 0.1vw 0.3vw #fff7f7,
+    0 0 0.4vw 0.3vw #e97272,
+    0 0 0.5vw 0.3vw #e50b0b,
+    inset 0 0 0.5vw 0.0vw #e50b0b,
+    inset 0 0 0.4vw 0.1vw #e97272,
+    inset 0 0 0.1vw 0.1vw #fff7f7;
+    margin-top: 30px;
+}
+#cerrar:hover{
+    background-color: #e50b0b;
+}
+#cerrarJuego{
+    background-color: #e50b0b68;
+    border: 0;
+    color: #f2f2f2;
+    font-size: 20px;
+    height: 40px;
+    line-height: 30px;
+    outline: none !important;
+    width: 90%;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 
+    0 0 0.1vw 0.3vw #fff7f7,
+    0 0 0.4vw 0.3vw #e97272,
+    0 0 0.5vw 0.3vw #e50b0b,
+    inset 0 0 0.5vw 0.0vw #e50b0b,
+    inset 0 0 0.4vw 0.1vw #e97272,
+    inset 0 0 0.1vw 0.1vw #fff7f7;
+    margin-top: 30px;
+}
+#cerrarJuego:hover{
+    background-color: #e50b0b;
+}
+#botonJuego{
+    background-color: #0be5d373;
+    border: 0;
+    color: #f2f2f2;
+    font-size: 20px;
+    height: 40px;
+    line-height: 30px;
+    outline: none !important;
+    width: 20%;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 
+    0 0 0.1vw 0.4vw #fff7f7,
+    0 0 0.4vw 0.6vw #72e9df,
+    0 0 4vw 0.4vw #0be5d3,
+    inset 0 0 1.5vw 0.4vw #0be5d3,
+    inset 0 0 0.4vw 0.2vw #72e9df,
+    inset 0 0 0.5vw 0.4vw #fff7f7;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+#botonJuego:hover{
+    background-color: #0be5d3;
 }
 
+@media (max-width: 700px){
+    #botonJuego{
+        width: 90%;
+    }
+}

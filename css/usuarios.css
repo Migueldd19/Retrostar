@@ -96,52 +96,52 @@ input::-moz-focus-inner{
     border: 0;
     background: none;
 }
-.campo_enviar {
-    margin-top: 15px;
-    margin-bottom: 15px;
-    background: transparent;
+
+#btnEnviar{
+    background-color: #4ce50b6f;
     border: 0;
-    border-radius: 5px;
-    box-shadow: rgba(75, 219, 18, 0.17) 0px -23px 25px 0px inset, rgba(75, 219, 18, 0.17) 0px -36px 30px 0px inset, rgba(75, 219, 18, 0.17) 0px -79px 40px 0px inset, rgba(75, 219, 18, 0.17) 0px 2px 1px, rgba(75, 219, 18, 0.17) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
     color: #f2f2f2;
-    font-size: 13px;
-    height: 30px;
+    font-size: 20px;
+    height: 50px;
     line-height: 30px;
     outline: none !important;
     width: 100%;
     cursor: pointer;
-}
-.campo_enviar:hover{
-    box-shadow: rgba(75, 219, 18, 0.504) 0px -23px 25px 0px inset, rgba(75, 219, 18, 0.499) 0px -36px 30px 0px inset, rgba(75, 219, 18, 0.527) 0px -79px 40px 0px inset,rgba(75, 219, 18, 0.513) 0px 2px 1px, rgba(75, 219, 18, 0.518) 0px 4px 2px, rgba(0, 0, 0, 0.508) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.47) 0px 32px 16px;
-}
-.campo_enviar::-moz-focus-inner { 
-    border: 0; 
-}
-.btn_eleminar{
-    width: 250px;
-    margin-top: 7px;
-    background: transparent;
-    border: 0;
     border-radius: 5px;
-    box-shadow: rgba(219, 18, 18, 0.17) 0px -23px 25px 0px inset, rgba(219, 18, 18, 0.17) 0px -36px 30px 0px inset, rgba(219, 18, 18, 0.17) 0px -79px 40px 0px inset, rgba(219, 18, 18, 0.17) 0px 2px 1px, rgba(219, 18, 18, 0.17) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-    font-size: 13px;
-    height: 30px;
-    line-height: 30px;
-    outline: none !important;
+    box-shadow: 
+    0 0 0.1vw 0.3vw #fff7f7a3,
+    0 0 0.4vw 0.3vw #53e364,
+    0 0 0.5vw 0.3vw #4ce50b,
+    inset 0 0 0.5vw 0.0vw #4ce50b,
+    inset 0 0 0.4vw 0.1vw #53e364,
+    inset 0 0 0.1vw 0.1vw #fff7f7a3;
+    margin-top: 30px;
 }
-.btn_eleminar:hover{
-    box-shadow:rgba(219, 18, 18, 0.463) 0px -23px 25px 0px inset, rgba(219, 18, 18, 0.539) 0px -36px 30px 0px inset, rgba(219, 18, 18, 0.534) 0px -79px 40px 0px inset, rgba(219, 18, 18, 0.52) 0px 2px 1px, rgba(219, 18, 18, 0.51) 0px 4px 2px, rgba(0, 0, 0, 0.51) 0px 8px 4px, rgba(0, 0, 0, 0.491) 0px 16px 8px, rgba(0, 0, 0, 0.496) 0px 32px 16px;
+#btnEnviar:hover{
+    background-color: #4ce50b;
 }
-.eleminar{
-    background: transparent;
+#btnEleminar{
+    background-color: #e50b0b68;
     border: 0;
     color: #f2f2f2;
-    font-size: 13px;
-    height: 30px;
+    font-size: 20px;
+    height: 50px;
     line-height: 30px;
     outline: none !important;
     width: 100%;
     cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 
+    0 0 0.1vw 0.3vw #fff7f7,
+    0 0 0.4vw 0.3vw #e97272,
+    0 0 0.5vw 0.3vw #e50b0b,
+    inset 0 0 0.5vw 0.0vw #e50b0b,
+    inset 0 0 0.4vw 0.1vw #e97272,
+    inset 0 0 0.1vw 0.1vw #fff7f7;
+    margin-top: 30px;
+}
+#btnEleminar:hover{
+    background-color: #e50b0b;
 }
 @media (max-width: 700px){
     .titulo{

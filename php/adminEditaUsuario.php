@@ -60,8 +60,8 @@ if($telefono != null){
 
 $conexion = conectar();
 
-    $sentenciarol = 'UPDATE usuarios SET Rol="'.$rol.'" WHERE Nombre="'.$usuario.'"';
-    $consulta2 = mysqli_query($conexion,$sentenciarol);
+$sentenciarol = 'UPDATE usuarios SET Rol="'.$rol.'" WHERE Nombre="'.$usuario.'"';
+$consulta2 = mysqli_query($conexion,$sentenciarol);
 
 if($valContraseña==true){
     $has_pass = password_hash($contraseña, PASSWORD_DEFAULT);

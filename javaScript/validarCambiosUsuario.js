@@ -52,11 +52,11 @@ function validarContraseñaRegistro(x){
     let exp_contraseña = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/;
 
     if(exp_contraseña.test(x)){
-        document.getElementById("contraseñaUsuario").style.borderBottom = "1px solid green";
+        document.getElementById("labelContraseñaUsuario").style.borderBottom = "1px solid green";
         let contraseñaRegistro = true;
     }
     else{
-        document.getElementById("contraseñaUsuario").style.borderBottom = "1px solid red";
+        document.getElementById("labelContraseñaUsuario").style.borderBottom = "1px solid red";
         let contraseñaRegistro = false;
     }
     
