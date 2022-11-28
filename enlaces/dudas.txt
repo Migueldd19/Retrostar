@@ -1,1 +1,0 @@
-cambiar fondo de login en responsive
