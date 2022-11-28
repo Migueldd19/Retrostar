@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- CSS -->
-    <!--<link rel="stylesheet" href="css/juegos.css">-->
-    <!--<link rel="stylesheet" href="css/compra.css"> -->
+    <link rel="stylesheet" href="css/juegos.css">
+    <link rel="stylesheet" href="css/compra.css">
 
     <!-- JAVASCRIPT -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"> </script>
@@ -34,13 +34,14 @@ if(isset($_SESSION["usuario"])){
 ?>  
 
     <div class="busqueda">
-        <p class="titulo">Juegos</p>
+        <p class="tituloPagina">Juegos</p>
         <div class="lupa">
             <i class='bx bx-search-alt-2' ></i>
         </div>                        
         <input type="text" name="busqueda" id="busqueda" placeholder="Busqueda..." onkeyup=recoger()>
     </div>
-    <div class="contenedor">
+
+    <div class="contenedorJuegos">
     <?php
  
     $result = conectar()->query('SELECT * FROM juegos');
@@ -51,19 +52,21 @@ if(isset($_SESSION["usuario"])){
         $listaValida = true;
     ?>
         <div class="col-lg-3" id="caja">
-            <div class="imagen">
+            <div class="imagenJuegos">
                 <img src="Imagenes/<?php print $row['Imagen'] ?>" alt="">
             </div>
-            <div class="nombre">
+            <div class="nombreJuegos">
     <?php 
                 $nombreJuego = $row['Nombre'];
                 print $row['Nombre'];
     ?>
             </div>
                 <div class="subcontenedor">
-                    <div class="descripcion">
+                    <div class="descripcionJuegos">
                         <?php print $row['Descripcion'] ?>
                     </div>
+                </div>
+                <div class="subsuelo">
                     <div class="precio" id="prueba_precio">
     <?php
                         if($row['Precio']!="0") {
@@ -107,8 +110,11 @@ if(isset($_SESSION["usuario"])){
                               
                         }
     ?> 
-                    </div>   
+                       
             </div>
+                </div>
+                    
+                    
         </div>   
     <?php
     }
