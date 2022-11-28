@@ -6,11 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/juegos.css">
+    <!--<link rel="stylesheet" href="css/juegos.css">-->
     <!--<link rel="stylesheet" href="css/compra.css"> -->
-
-    <!-- Boostrap -->
-    
 
     <!-- JAVASCRIPT -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"> </script>
@@ -67,7 +64,7 @@ if(isset($_SESSION["usuario"])){
                     <div class="descripcion">
                         <?php print $row['Descripcion'] ?>
                     </div>
-                    <div class="precio">
+                    <div class="precio" id="prueba_precio">
     <?php
                         if($row['Precio']!="0") {
                             print $row['Precio'].'€';
