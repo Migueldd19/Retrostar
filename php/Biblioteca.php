@@ -36,29 +36,31 @@
         
     ?>
     <div class="busqueda">
-        <p class="titulo">Mis Juegos</p>
+        <p class="tituloPagina">Mis Juegos</p>
         <div class="lupa">
             <i class='bx bx-search-alt-2' ></i>
         </div>                        
         <input type="text" name="busqueda" id="busqueda" placeholder="Busqueda..." onkeyup=recoger()>
     </div>
-    <div class="contenedor">
+    <div class="contenedorJuegos">
         
     <?php
         $result = conectar()->query('SELECT * FROM juegos INNER JOIN biblioteca ON juegos.Nombre = biblioteca.Juego WHERE biblioteca.Usuario = "'.$nombre.'"');
         while ($row = $result->fetch_assoc()){
                 ?>
                 <div class="col-lg-3" id="caja">
-                    <div class="imagen">
+                    <div class="imagenJuegos">
                         <img src="Imagenes/<?php print $row['Imagen'] ?>" alt="">
                     </div>
-                    <div class="nombre">
+                    <div class="nombreJuegos">
                         <?php print $row['Nombre'];?>
                     </div>
                     <div class="subcontenedor">
-                        <div class="descripcion">
+                        <div class="descripcionJuegos">
                             <?php print $row['Descripcion'] ?>
                         </div>
+                    </div>
+                    <div class="subsuelo">
                         <div class="precio">
                             <?php
                             if($row['Precio']!="0") {
@@ -68,7 +70,7 @@
                                 print 'Gratis';
                             }
                             ?>
-                        </div>   
+                        </div> 
                     </div>
                 </div>
             <?php
